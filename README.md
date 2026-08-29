@@ -71,12 +71,12 @@ Never lose track of your accepted solutions again. Whenever you solve a problem 
 ## 🌟 Supported Platforms
 
 | Platform | Badge | Output Folder | Sync Method |
-| :--- | :--- | :--- | :--- |
-| **[LeetCode](https://leetcode.com/)** | `![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=LeetCode&logoColor=black)` | `leetcode/` | Instant Submission Hook |
-| **[GeeksforGeeks](https://geeksforgeeks.org/explore)** | `![GFG](https://img.shields.io/badge/GeeksforGeeks-298D46?style=flat-square&logo=geeksforgeeks&logoColor=white)` | `geeksforgeeks/` | Instant Submission Hook |
-| **[Codeforces](https://codeforces.com/)** | `![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white)` | `codeforces/` | Automatic Background Sync (via Handle) |
-| **[CodeChef](https://www.codechef.com/)** | `![CodeChef](https://img.shields.io/badge/CodeChef-5B4638?style=flat-square&logo=CodeChef&logoColor=white)` | `codechef/` | Instant Submission Hook |
-| **[NeetCode](https://neetcode.io/)** | `![NeetCode](https://img.shields.io/badge/NeetCode-00C49F?style=flat-square&logoColor=white)` | `neetcode/` | Instant Submission Hook |
+| :--- | :---: | :--- | :--- |
+| **[LeetCode](https://leetcode.com/)** | ![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=LeetCode&logoColor=black) | `leetcode/` | Instant Submission Hook |
+| **[GeeksforGeeks](https://geeksforgeeks.org/explore)** | ![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-298D46?style=flat-square&logo=geeksforgeeks&logoColor=white) | `geeksforgeeks/` | Instant Submission Hook |
+| **[Codeforces](https://codeforces.com/)** | ![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=flat-square&logo=codeforces&logoColor=white) | `codeforces/` | Automatic Background Sync (via Handle) |
+| **[CodeChef](https://www.codechef.com/)** | ![CodeChef](https://img.shields.io/badge/CodeChef-5B4638?style=flat-square&logo=CodeChef&logoColor=white) | `codechef/` | Instant Submission Hook |
+| **[NeetCode](https://neetcode.io/)** | ![NeetCode](https://img.shields.io/badge/NeetCode-00C49F?style=flat-square&logoColor=white) | `neetcode/` | Instant Submission Hook |
 
 ---
 
