@@ -1,0 +1,64 @@
+# CodeHub — Browser Extension
+
+> CodeHub is a free, privacy-first Chrome extension that automatically syncs your accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef & NeetCode into a single organized GitHub repository.
+
+- Website: https://rishijain07.github.io/codehub-extension/
+- Chrome Web Store: https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf
+- GitHub Repository: https://github.com/rishijain07/codehub-extension
+- Author: Rishi Jain (beingrishijain@gmail.com)
+- Current Version: v2.2.0 (Manifest V3)
+- Pricing: 100% Free & Open Ecosystem
+
+## Overview & Value Proposition
+CodeHub eliminates the manual friction of copying and committing code after solving Data Structures & Algorithms problems. It converts every accepted solution across competitive programming and interview prep platforms into a structured GitHub repository, building an automated proof-of-work portfolio for software engineering interviews.
+
+## Supported Platforms & Sync Mechanisms
+- **LeetCode**: Instant client-side DOM hook upon receiving an "Accepted" verdict. Formats code file and generates a complete `README.md` with difficulty, tags, problem description, and performance stats.
+- **GeeksforGeeks (GFG)**: Instant client-side hook on accepted code submissions.
+- **Codeforces**: Automatic background polling via the official public Codeforces API using your username handle. Syncs practice submissions and contest solutions.
+- **CodeChef**: Instant hook on accepted submissions for contests and practice problemsets.
+- **NeetCode**: Instant hook on NeetCode 150 & NeetCode 75 problem sets.
+
+## Architecture & Privacy Model
+- **Zero Intermediary Servers**: CodeHub does not use any hosted backend or cloud database. All network requests travel directly from the user's browser to the platform API and the official GitHub REST API.
+- **OAuth Device Flow**: Uses GitHub's secure Device Flow (`https://github.com/login/device`). The user never enters their GitHub password into the extension.
+- **Local Storage**: The GitHub OAuth token is stored strictly in `chrome.storage.local` within the user's browser sandbox and is never transmitted anywhere else.
+- **Private Repositories**: Supports both public and private GitHub repositories.
+
+## Repository Folder Structure
+When CodeHub pushes code, it organizes problems into clean platform-based directories:
+```
+your-dsa-repo/
+├── leetcode/
+│   └── 0001-two-sum/
+│       ├── solution.cpp (or .py, .java, .js, .ts, etc.)
+│       └── README.md
+├── geeksforgeeks/
+│   └── bfs-traversal-of-graph/
+│       ├── solution.py
+│       └── README.md
+├── codeforces/
+│   └── 4A-watermelon/
+│       ├── solution.cpp
+│       └── README.md
+├── codechef/
+│   └── START01/
+│       ├── solution.java
+│       └── README.md
+├── neetcode/
+│   └── neetcode-150/
+│       └── ...
+└── stats.json
+```
+
+## Comparison with LeetHub & Alternatives
+- **Multi-Platform**: LeetHub and other tools typically only support LeetCode. CodeHub unifies 5 major platforms in a single repository.
+- **Manifest V3 Native**: CodeHub is built on modern Chrome Extensions Manifest V3 architecture with a service worker, ensuring long-term compatibility.
+- **Active Maintenance**: Continuously updated to adapt to UI changes on competitive programming websites.
+
+## Setup in 60 Seconds
+1. Install CodeHub from the Chrome Web Store: https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf
+2. Click the CodeHub icon in your browser toolbar and select "Authenticate with GitHub".
+3. Enter the one-time device code at github.com/login/device to grant repo permissions.
+4. Select your target repository or let CodeHub create a clean `DSA-Solutions` repo.
+5. Solve problems on any supported platform — on "Accepted", CodeHub automatically commits your solution and documentation!
