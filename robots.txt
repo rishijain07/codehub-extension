@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rishijain07.github.io/codehub-extension/sitemap.xml
