@@ -260,7 +260,7 @@
 
   function initAiDialog() {
     var dialog = qs('#aiDialog');
-    var trigger = qs('[data-ai-trigger]');
+    var triggers = qsa('[data-ai-trigger]');
     var closeButton = qs('[data-dialog-close]');
     var card = qs('.dialog-card', dialog || document);
     var textarea = qs('#aiPromptInput');
@@ -268,9 +268,13 @@
     var status = qs('#dialogStatus');
     var chatgpt = qs('#launchChatGptBtn');
     var claude = qs('#launchClaudeBtn');
+    var gemini = qs('#launchGeminiBtn');
+    var perplexity = qs('#launchPerplexityBtn');
+    var grok = qs('#launchGrokBtn');
+    var providerLinks = [chatgpt, claude, gemini, perplexity, grok];
     var returnFocus = null;
 
-    if (!dialog || !trigger || !textarea) return;
+    if (!dialog || !triggers.length || !textarea) return;
 
     function buildAiPrompt(question) {
       return [
@@ -289,8 +293,11 @@
       var encoded = encodeURIComponent(buildAiPrompt(value));
       if (chatgpt) chatgpt.href = 'https://chatgpt.com/?q=' + encoded;
       if (claude) claude.href = 'https://claude.ai/new?q=' + encoded;
+      if (gemini) gemini.href = 'https://gemini.google.com/app?q=' + encoded;
+      if (perplexity) perplexity.href = 'https://www.perplexity.ai/search/new?q=' + encoded;
+      if (grok) grok.href = 'https://grok.com/?q=' + encoded;
       var disabled = value.length === 0;
-      [chatgpt, claude].forEach(function (link) {
+      providerLinks.forEach(function (link) {
         if (!link) return;
         link.setAttribute('aria-disabled', String(disabled));
       });
@@ -325,7 +332,7 @@
       };
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(function () { done('Prompt copied.'); }).catch(function () { done('Copy unavailable — select the prompt manually.'); });
+        navigator.clipboard.writeText(value).then(function () { done('Prompt copied.'); }).catch(function () { done('Copy unavailable. Select the prompt manually.'); });
         return;
       }
 
@@ -333,13 +340,13 @@
       textarea.select();
       try {
         var copied = document.execCommand('copy');
-        done(copied ? 'Prompt copied.' : 'Copy unavailable — select the prompt manually.');
+        done(copied ? 'Prompt copied.' : 'Copy unavailable. Select the prompt manually.');
       } catch (error) {
-        done('Copy unavailable — select the prompt manually.');
+        done('Copy unavailable. Select the prompt manually.');
       }
     }
 
-    trigger.addEventListener('click', openDialog);
+    triggers.forEach(function (trigger) { trigger.addEventListener('click', openDialog); });
     if (closeButton) closeButton.addEventListener('click', closeDialog);
     dialog.addEventListener('click', function (event) {
       if (event.target === dialog) closeDialog();
@@ -347,11 +354,19 @@
     dialog.addEventListener('close', function () {
       if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus();
     });
-    textarea.addEventListener('input', updateLinks);
+    textarea.addEventListener('input', function () {
+      qsa('[data-prompt]', dialog).forEach(function (promptButton) {
+        promptButton.setAttribute('aria-pressed', 'false');
+      });
+      updateLinks();
+    });
     if (copyButton) copyButton.addEventListener('click', copyPrompt);
 
     qsa('[data-prompt]', dialog).forEach(function (button) {
       button.addEventListener('click', function () {
+        qsa('[data-prompt]', dialog).forEach(function (promptButton) {
+          promptButton.setAttribute('aria-pressed', String(promptButton === button));
+        });
         textarea.value = button.getAttribute('data-prompt') || DEFAULT_PROMPT;
         updateLinks();
         textarea.focus();
@@ -359,7 +374,7 @@
       });
     });
 
-    [chatgpt, claude].forEach(function (link) {
+    providerLinks.forEach(function (link) {
       if (!link) return;
       link.addEventListener('click', function (event) {
         if (!textarea.value.trim()) {

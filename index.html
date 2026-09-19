@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeHub — Your accepted solutions, already on GitHub</title>
-  <meta name="description" content="CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode and public HackerRank challenges into one organized GitHub repository.">
-  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, HackerRank GitHub, public HackerRank challenges, browser extension, DSA, competitive programming">
+  <title>Automatically Sync Coding Solutions to GitHub | CodeHub</title>
+  <meta name="description" content="Free CodeHub browser extension syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank to GitHub.">
   <meta name="author" content="Rishi Jain">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F5F7FA">
   <meta name="google-site-verification" content="fIn7rdm0KMBVbsFaKfNsXn-Lv02S1xSV8qaXEUE-XME">
+  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, HackerRank GitHub, public HackerRank challenges, browser extension, DSA, competitive programming">
 
   <link rel="canonical" href="https://rishijain07.github.io/codehub-extension/">
   <link rel="alternate" type="text/markdown" title="CodeHub LLM Documentation" href="llms.txt">
@@ -18,18 +18,21 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rishijain07.github.io/codehub-extension/">
   <meta property="og:site_name" content="CodeHub">
-  <meta property="og:title" content="CodeHub — Your accepted solutions, already on GitHub">
-  <meta property="og:description" content="Automatically push accepted solutions from six DSA platforms, including public HackerRank challenges, directly to your personal GitHub repository.">
-  <meta property="og:image" content="https://rishijain07.github.io/codehub-extension/assets/stats.png">
-  <meta property="og:image:alt" content="CodeHub dashboard with cross-platform DSA statistics">
+  <meta property="og:title" content="Automatically Sync Coding Solutions to GitHub | CodeHub">
+  <meta property="og:description" content="CodeHub automatically syncs accepted solutions from six coding platforms into the GitHub repository you choose.">
+  <meta property="og:image" content="https://rishijain07.github.io/codehub-extension/assets/codehub-social-card.png">
+  <meta property="og:image:alt" content="CodeHub dashboard showing accepted coding solutions organized by platform">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rishijain07.github.io/codehub-extension/">
-  <meta name="twitter:title" content="CodeHub — Your accepted solutions, already on GitHub">
-  <meta name="twitter:description" content="Auto-sync competitive programming solutions to GitHub with zero manual copy-paste.">
-  <meta name="twitter:image" content="https://rishijain07.github.io/codehub-extension/assets/stats.png">
-  <meta name="twitter:image:alt" content="CodeHub dashboard with cross-platform DSA statistics">
+  <meta name="twitter:title" content="Automatically Sync Coding Solutions to GitHub | CodeHub">
+  <meta name="twitter:description" content="CodeHub automatically syncs accepted solutions from six coding platforms into the GitHub repository you choose.">
+  <meta name="twitter:image" content="https://rishijain07.github.io/codehub-extension/assets/codehub-social-card.png">
+  <meta name="twitter:image:alt" content="CodeHub dashboard showing accepted coding solutions organized by platform">
 
   <link rel="icon" type="image/png" href="assets/logo128.png">
   <link rel="apple-touch-icon" href="assets/logo128.png">
@@ -37,15 +40,46 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CodeHub",
-    "operatingSystem": "Chrome, Firefox 128+, Brave, Edge, Chromium",
-    "applicationCategory": "DeveloperApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "description": "CodeHub automatically syncs accepted solutions from six DSA platforms, including public HackerRank challenges, into one organized GitHub repository.",
-    "url": "https://rishijain07.github.io/codehub-extension/",
-    "image": "https://rishijain07.github.io/codehub-extension/assets/stats.png",
-    "author": { "@type": "Person", "name": "Rishi Jain" }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://rishijain07.github.io/codehub-extension/#website",
+        "url": "https://rishijain07.github.io/codehub-extension/",
+        "name": "CodeHub",
+        "description": "Automatically sync accepted coding solutions to GitHub.",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://rishijain07.github.io/codehub-extension/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://rishijain07.github.io/codehub-extension/#person",
+        "name": "Rishi Jain",
+        "url": "https://github.com/rishijain07",
+        "sameAs": ["https://github.com/rishijain07"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://rishijain07.github.io/codehub-extension/#software",
+        "name": "CodeHub",
+        "url": "https://rishijain07.github.io/codehub-extension/",
+        "description": "CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges to GitHub.",
+        "operatingSystem": "Windows, macOS, Linux, ChromeOS",
+        "browserRequirements": "Chrome, Firefox 128+, Brave, Edge, or Chromium",
+        "applicationCategory": "DeveloperApplication",
+        "softwareVersion": "2.3.0",
+        "downloadUrl": "https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf",
+        "sameAs": "https://github.com/rishijain07/codehub-extension",
+        "featureList": [
+          "Automatically sync accepted coding solutions to GitHub",
+          "Support for six DSA and competitive programming platforms",
+          "Client-side GitHub Device Flow authentication"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "image": "https://rishijain07.github.io/codehub-extension/assets/codehub-social-card.png",
+        "screenshot": "https://rishijain07.github.io/codehub-extension/assets/stats.png",
+        "author": { "@id": "https://rishijain07.github.io/codehub-extension/#person" }
+      }
+    ]
   }
   </script>
 
@@ -66,19 +100,13 @@
       <a class="brand" href="#top" aria-label="CodeHub home">
         <img src="assets/logo128.png" alt="">
         <span>CodeHub</span>
-        <span class="brand-version">v2.2.0</span>
+        <span class="brand-version">v2.3.0</span>
       </a>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#how-it-works">How it works</a>
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
-        <button class="text-button" type="button" data-ai-trigger aria-haspopup="dialog">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m12 3 1.4 4.1a4.5 4.5 0 0 0 2.8 2.8L20.3 11l-4.1 1.4a4.5 4.5 0 0 0-2.8 2.8L12 19.3l-1.4-4.1a4.5 4.5 0 0 0-2.8-2.8L3.7 11l4.1-1.1a4.5 4.5 0 0 0 2.8-2.8L12 3Z"/>
-          </svg>
-          <span>Ask AI</span>
-        </button>
         <a class="button button--small button--primary" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">
           Add to Chrome
           <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -93,19 +121,19 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy" data-motion="hero-copy">
-          <p class="eyebrow">Six platforms. One repository.</p>
-          <h1 id="hero-title" class="hero-title">Your accepted solutions,<br><em>already on GitHub.</em></h1>
-          <p class="hero-lede">CodeHub sends accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges straight to the repository you choose — with code, context, and progress kept together.</p>
+          <p class="eyebrow">Automatic DSA solution sync</p>
+          <h1 id="hero-title" class="hero-title">Automatically sync accepted coding solutions<br><em>straight to GitHub.</em></h1>
+          <p class="hero-lede">CodeHub is a free browser extension that automatically syncs accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges into the GitHub repository you choose.</p>
 
           <div class="hero-actions">
             <a class="button button--primary" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">
               <img src="assets/chrome-logo.svg" alt="" width="18" height="18">
-              Add to Chrome — free
+              Add to Chrome - free
               <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/>
               </svg>
             </a>
-            <a class="button button--outline" href="#how-it-works">See how it works</a>
+            <button class="button button--outline" type="button" data-ai-trigger aria-haspopup="dialog" aria-controls="aiDialog">Ask AI</button>
           </div>
 
           <p class="hero-note">
@@ -182,7 +210,7 @@
         <div class="section-heading" data-reveal>
           <div>
             <p class="section-label">Supported platforms</p>
-            <h2 id="platforms-title">Solve where you already practice.</h2>
+            <h2 id="platforms-title">Sync solutions from the platforms you already use.</h2>
           </div>
           <p>Choose a platform to preview the exact folder and sync mode CodeHub uses.</p>
         </div>
@@ -203,8 +231,8 @@
         <div class="proof-stage" data-reveal>
           <div class="proof-copy">
             <p class="section-label">The output</p>
-            <h2 id="proof-title">A clean repo, without the cleanup.</h2>
-            <p>Every accepted solution becomes a useful piece of your proof of work — organized by platform and documented for the next time you revisit it.</p>
+            <h2 id="proof-title">Build an organized GitHub solutions repository.</h2>
+            <p>Every accepted solution becomes a useful piece of your proof of work, organized by platform and documented for the next time you revisit it.</p>
             <ul class="proof-list">
               <li>Code file and problem README are committed together.</li>
               <li>Progress from six platforms stays in one history.</li>
@@ -228,7 +256,7 @@
         <div class="section-heading" data-reveal>
           <div>
             <p class="section-label">How it works</p>
-            <h2 id="steps-title">From install to green dot in a minute.</h2>
+            <h2 id="steps-title">How CodeHub syncs accepted solutions to GitHub.</h2>
           </div>
           <p>Set it up once. Keep solving without opening a new tab or writing another README.</p>
         </div>
@@ -257,7 +285,7 @@
       <div class="container privacy-grid">
         <div class="privacy-copy" data-reveal>
           <p class="section-label">Privacy by architecture</p>
-          <h2 id="privacy-title">Your code takes the shortest route.</h2>
+          <h2 id="privacy-title">Client-side privacy for your GitHub code.</h2>
           <p>CodeHub has no intermediary server, tracking database, or remote copy of your code. The extension talks directly to the official APIs from your browser.</p>
           <div class="privacy-actions">
             <a class="button button--dark" href="privacypolicy.txt" target="_blank" rel="noopener noreferrer">Read the privacy policy</a>
@@ -287,11 +315,15 @@
         <div class="section-heading" data-reveal>
           <div>
             <p class="section-label">Questions, answered</p>
-            <h2 id="faq-title">A few things worth knowing.</h2>
+            <h2 id="faq-title">CodeHub questions, answered.</h2>
           </div>
         </div>
 
         <div class="faq-list" data-reveal>
+          <details>
+            <summary>Which coding platforms can CodeHub sync to GitHub?</summary>
+            <p>CodeHub supports LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges.</p>
+          </details>
           <details>
             <summary>Does CodeHub work with private GitHub repositories?</summary>
             <p>Yes. During GitHub authentication, CodeHub requests the repository scope needed to push to a public or private repository you choose.</p>
@@ -320,12 +352,12 @@
       <div class="container">
         <div class="closing-card" data-reveal>
           <div class="closing-content">
-            <h2 id="closing-title">Let the repo remember the work.</h2>
+            <h2 id="closing-title">Keep your coding progress in GitHub.</h2>
             <p>Install CodeHub once, then keep solving. Your accepted solutions will arrive in GitHub with the context you need to learn from them later.</p>
             <div class="closing-actions">
               <a class="button button--primary" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">
                 <img src="assets/chrome-logo.svg" alt="" width="18" height="18">
-                Add to Chrome — free
+                Add to Chrome - free
                 <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
               </a>
               <a class="button button--outline" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">Leave a review</a>
@@ -358,10 +390,14 @@
 
   <dialog id="aiDialog" class="ai-dialog" aria-labelledby="aiDialogTitle" aria-describedby="aiDialogDescription">
     <form class="dialog-card" method="dialog">
+      <div class="dialog-topline" aria-hidden="true">
+        <span class="dialog-kicker">CodeHub assistant</span>
+        <span class="dialog-context">official context included</span>
+      </div>
       <div class="dialog-header">
         <div>
-          <h2 id="aiDialogTitle">Ask AI about CodeHub</h2>
-          <p id="aiDialogDescription">Start with a question, edit it, then open the service you prefer.</p>
+          <h2 id="aiDialogTitle">Ask about CodeHub</h2>
+          <p id="aiDialogDescription">Choose a starting point or write your own question. Your prompt opens with CodeHub's official page and documentation.</p>
         </div>
         <button class="dialog-close" type="submit" value="close" data-dialog-close aria-label="Close dialog">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 6 12 12M18 6 6 18"/></svg>
@@ -369,23 +405,35 @@
       </div>
 
       <fieldset class="dialog-fieldset">
-        <legend>Choose a starting question</legend>
-        <button class="prompt-chip" type="button" data-prompt="What is CodeHub and how does it automatically sync accepted DSA solutions to GitHub?"><span>What is CodeHub and how does it work?</span><span>Select</span></button>
-        <button class="prompt-chip" type="button" data-prompt="How does CodeHub compare to LeetHub and other GitHub sync extensions?"><span>How does CodeHub compare to LeetHub?</span><span>Select</span></button>
-        <button class="prompt-chip" type="button" data-prompt="Is CodeHub safe and private with my GitHub account and code?"><span>Is CodeHub safe with my GitHub account?</span><span>Select</span></button>
-        <button class="prompt-chip" type="button" data-prompt="How do I set up CodeHub in under 60 seconds with GitHub Device Flow?"><span>How do I set it up in 60 seconds?</span><span>Select</span></button>
+        <legend>Start with a prompt</legend>
+        <button class="prompt-chip" type="button" data-prompt="What is CodeHub and how does it automatically sync accepted DSA solutions to GitHub?" aria-pressed="true"><span>How does CodeHub work?</span><span>Use prompt</span></button>
+        <button class="prompt-chip" type="button" data-prompt="How does CodeHub compare to LeetHub and other GitHub sync extensions?" aria-pressed="false"><span>How does it compare to LeetHub?</span><span>Use prompt</span></button>
+        <button class="prompt-chip" type="button" data-prompt="Is CodeHub safe and private with my GitHub account and code?" aria-pressed="false"><span>Is CodeHub safe with GitHub?</span><span>Use prompt</span></button>
+        <button class="prompt-chip" type="button" data-prompt="How do I set up CodeHub in under 60 seconds with GitHub Device Flow?" aria-pressed="false"><span>How do I set it up?</span><span>Use prompt</span></button>
       </fieldset>
 
-      <label class="dialog-label" for="aiPromptInput">Prompt</label>
-      <textarea id="aiPromptInput" class="dialog-textarea" rows="3">What is CodeHub and how does it automatically sync accepted DSA solutions to GitHub?</textarea>
-      <div class="dialog-toolbar">
-        <button id="copyPromptButton" class="copy-button" type="button">Copy prompt</button>
-        <span id="dialogStatus" class="dialog-status" role="status" aria-live="polite"></span>
+      <div class="dialog-input">
+        <div class="dialog-label-row">
+          <label class="dialog-label" for="aiPromptInput">Your question</label>
+          <span class="dialog-editable">Editable</span>
+        </div>
+        <textarea id="aiPromptInput" class="dialog-textarea" rows="3">What is CodeHub and how does it automatically sync accepted DSA solutions to GitHub?</textarea>
+        <div class="dialog-toolbar">
+          <span id="dialogStatus" class="dialog-status" role="status" aria-live="polite"></span>
+        </div>
       </div>
 
+      <div class="dialog-actions-heading">
+        <span>Choose a service</span>
+        <span>Prompt opens in a new tab</span>
+      </div>
       <div class="dialog-actions">
+        <a id="launchGeminiBtn" class="button button--gemini" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"><img class="ai-logo" src="https://cdn.simpleicons.org/googlegemini/ffffff" alt="" width="18" height="18" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span>Ask in Gemini</span></a>
+        <a id="launchPerplexityBtn" class="button button--perplexity" href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer"><img class="ai-logo" src="https://cdn.simpleicons.org/perplexity/ffffff" alt="" width="18" height="18" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span>Ask in Perplexity</span></a>
+        <a id="launchGrokBtn" class="button button--grok" href="https://grok.com/" target="_blank" rel="noopener noreferrer"><img class="ai-logo" src="https://unpkg.com/@lobehub/icons-static-svg@1.95.0/icons/grok.svg" alt="" width="18" height="18" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span>Ask in Grok</span></a>
         <a id="launchChatGptBtn" class="button button--chatgpt" href="https://chatgpt.com/?q=You%20are%20answering%20a%20question%20about%20CodeHub%2C%20a%20privacy-first%20Chrome%20extension%20for%20competitive%20programmers.%0AUse%20these%20official%20sources%20for%20context%3A%0AProduct%20page%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2F%0AAgent%20documentation%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2Fllms.txt%0A%0AUser%20question%3A%0AWhat%20is%20CodeHub%20and%20how%20does%20it%20automatically%20sync%20accepted%20DSA%20solutions%20to%20GitHub%3F" target="_blank" rel="noopener noreferrer"><svg class="ai-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.28 9.82a5.98 5.98 0 0 0-.51-4.91 6.05 6.05 0 0 0-6.51-2.9A6.07 6.07 0 0 0 4.98 4.18a5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.51 2.9A6.07 6.07 0 0 0 19.03 19.8a5.99 5.99 0 0 0 4-2.9 6.06 6.06 0 0 0-.75-7.08ZM13.26 22.43a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.79.79 0 0 0 .39-.68v-6.74l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.49 4.5ZM3.6 18.3a4.47 4.47 0 0 1-.53-3.01l.14.09 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06l-4.83 2.79A4.5 4.5 0 0 1 3.6 18.3ZM2.34 7.9a4.48 4.48 0 0 1 2.37-1.97v5.68a.77.77 0 0 0 .39.68l5.81 3.35-2.02 1.17a.08.08 0 0 1-.07 0l-4.83-2.79a4.5 4.5 0 0 1-1.65-6.11Zm16.6 3.86-5.83-3.39 2.02-1.16a.08.08 0 0 1 .07 0l4.83 2.79a4.49 4.49 0 0 1-.68 8.1v-5.68a.79.79 0 0 0-.41-.67Zm2.01-3.02-.14-.09-4.77-2.78a.78.78 0 0 0-.79 0L9.41 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.66ZM8.31 12.86l-2.02-1.16a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08-4.78 2.76a.79.79 0 0 0-.39.68v6.72Zm1.15-1.77L12 9.62l2.55 1.47v2.94L12 15.5l-2.55-1.47Z"/></svg><span>Ask in ChatGPT</span></a>
-        <a id="launchClaudeBtn" class="button button--claude" href="https://claude.ai/new?q=You%20are%20answering%20a%20question%20about%20CodeHub%2C%20a%20privacy-first%20Chrome%20extension%20for%20competitive%20programmers.%0AUse%20these%20official%20sources%20for%20context%3A%0AProduct%20page%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2F%0AAgent%20documentation%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2Fllms.txt%0A%0AUser%20question%3A%0AWhat%20is%20CodeHub%20and%20how%20does%20it%20automatically%20sync%20accepted%20DSA%20solutions%20to%20GitHub%3F" target="_blank" rel="noopener noreferrer"><svg class="ai-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5v19M3.77 7.25l16.46 9.5M3.77 16.75l16.46-9.5"/></svg><span>Ask in Claude</span></a>
+        <a id="launchClaudeBtn" class="button button--claude" href="https://claude.ai/new?q=You%20are%20answering%20a%20question%20about%20CodeHub%2C%20a%20privacy-first%20Chrome%20extension%20for%20competitive%20programmers.%0AUse%20these%20official%20sources%20for%20context%3A%0AProduct%20page%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2F%0AAgent%20documentation%3A%20https%3A%2F%2Frishijain07.github.io%2Fcodehub-extension%2Fllms.txt%0A%0AUser%20question%3A%0AWhat%20is%20CodeHub%20and%20how%20does%20it%20automatically%20sync%20accepted%20DSA%20solutions%20to%20GitHub%3F" target="_blank" rel="noopener noreferrer"><img class="ai-logo" src="https://cdn.simpleicons.org/anthropic/ffffff" alt="" width="18" height="18" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span>Ask in Claude</span></a>
+        <button id="copyPromptButton" class="button button--copy" type="button" aria-label="Copy full prompt"><svg class="ai-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M5 16H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1"/></svg><span>Copy prompt</span></button>
       </div>
       <p class="dialog-note">Each launch includes your question plus CodeHub’s official page and <span class="mono">llms.txt</span> URL for context. The conversation stays with the service you choose.</p>
     </form>
