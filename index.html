@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeHub — Your accepted solutions, already on GitHub</title>
-  <meta name="description" content="CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef and NeetCode into one organized GitHub repository.">
-  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, browser extension, DSA, competitive programming">
+  <meta name="description" content="CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode and public HackerRank challenges into one organized GitHub repository.">
+  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, HackerRank GitHub, public HackerRank challenges, browser extension, DSA, competitive programming">
   <meta name="author" content="Rishi Jain">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F5F7FA">
@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://rishijain07.github.io/codehub-extension/">
   <meta property="og:site_name" content="CodeHub">
   <meta property="og:title" content="CodeHub — Your accepted solutions, already on GitHub">
-  <meta property="og:description" content="Automatically push accepted solutions from five DSA platforms directly to your personal GitHub repository.">
+  <meta property="og:description" content="Automatically push accepted solutions from six DSA platforms, including public HackerRank challenges, directly to your personal GitHub repository.">
   <meta property="og:image" content="https://rishijain07.github.io/codehub-extension/assets/stats.png">
   <meta property="og:image:alt" content="CodeHub dashboard with cross-platform DSA statistics">
   <meta property="og:locale" content="en_US">
@@ -39,10 +39,10 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "CodeHub",
-    "operatingSystem": "Chrome, Brave, Edge, Chromium",
+    "operatingSystem": "Chrome, Firefox 128+, Brave, Edge, Chromium",
     "applicationCategory": "DeveloperApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "description": "CodeHub automatically syncs accepted solutions from five DSA platforms into one organized GitHub repository.",
+    "description": "CodeHub automatically syncs accepted solutions from six DSA platforms, including public HackerRank challenges, into one organized GitHub repository.",
     "url": "https://rishijain07.github.io/codehub-extension/",
     "image": "https://rishijain07.github.io/codehub-extension/assets/stats.png",
     "author": { "@type": "Person", "name": "Rishi Jain" }
@@ -93,9 +93,9 @@
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy" data-motion="hero-copy">
-          <p class="eyebrow">Five platforms. One repository.</p>
+          <p class="eyebrow">Six platforms. One repository.</p>
           <h1 id="hero-title" class="hero-title">Your accepted solutions,<br><em>already on GitHub.</em></h1>
-          <p class="hero-lede">CodeHub sends accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, and NeetCode straight to the repository you choose — with code, context, and progress kept together.</p>
+          <p class="hero-lede">CodeHub sends accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges straight to the repository you choose — with code, context, and progress kept together.</p>
 
           <div class="hero-actions">
             <a class="button button--primary" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">
@@ -193,6 +193,7 @@
           <button class="platform-pill" type="button" data-platform="codeforces" aria-pressed="false" aria-controls="commit-console">Codeforces <small>background</small></button>
           <button class="platform-pill" type="button" data-platform="codechef" aria-pressed="false" aria-controls="commit-console">CodeChef <small>instant</small></button>
           <button class="platform-pill" type="button" data-platform="neetcode" aria-pressed="false" aria-controls="commit-console">NeetCode <small>instant</small></button>
+          <button class="platform-pill" type="button" data-platform="hackerrank" aria-pressed="false" aria-controls="commit-console">HackerRank <small>public / instant</small></button>
         </div>
       </div>
     </section>
@@ -206,7 +207,7 @@
             <p>Every accepted solution becomes a useful piece of your proof of work — organized by platform and documented for the next time you revisit it.</p>
             <ul class="proof-list">
               <li>Code file and problem README are committed together.</li>
-              <li>Progress from five platforms stays in one history.</li>
+              <li>Progress from six platforms stays in one history.</li>
               <li>Open the right platform folder from the extension popup.</li>
             </ul>
           </div>
@@ -214,7 +215,7 @@
           <figure class="product-frame">
             <picture>
               <source srcset="assets/stats-popup.webp" type="image/webp">
-              <img src="assets/stats-popup.png" width="2560" height="1732" loading="lazy" alt="CodeHub extension popup showing synchronized problem counts across five platforms">
+              <img src="assets/stats-popup.png" width="2560" height="1732" loading="lazy" alt="CodeHub extension popup showing synchronized problem counts across six platforms">
             </picture>
             <figcaption>CodeHub popup · a single view of your synced progress</figcaption>
           </figure>
@@ -276,7 +277,7 @@
             <strong>GitHub</strong>
             <span>api.github.com</span>
           </div>
-          <p class="route-note"><strong>No CodeHub backend.</strong> Codeforces metadata is read from its public API; your token and settings stay inside the extension sandbox.</p>
+          <p class="route-note"><strong>No CodeHub backend.</strong> Codeforces metadata and public HackerRank challenge metadata are read directly from their official pages/APIs; your token and settings stay inside the extension sandbox.</p>
         </div>
       </div>
     </section>
@@ -304,6 +305,10 @@
             <p>Add your Codeforces handle in the extension. CodeHub checks the public API in the background for newly accepted contest and practice submissions.</p>
           </details>
           <details>
+            <summary>How does HackerRank synchronization work?</summary>
+            <p>CodeHub syncs accepted public Practice/Prepare and anonymously public contest challenges. It reads the active editor and falls back from fullscreen URLs to the canonical problem page when difficulty is hidden. Hiring assessments, tests, and interview pages are excluded.</p>
+          </details>
+          <details>
             <summary>Is CodeHub free?</summary>
             <p>Yes. CodeHub is free to install from the <a href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">official Chrome Web Store listing</a>.</p>
           </details>
@@ -323,6 +328,7 @@
                 Add to Chrome — free
                 <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
               </a>
+              <a class="button button--outline" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">Leave a review</a>
               <a class="button button--outline" href="https://github.com/rishijain07/codehub-extension/issues/new" target="_blank" rel="noopener noreferrer">Request a feature</a>
             </div>
           </div>
@@ -346,7 +352,7 @@
           <a href="llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a>
         </nav>
       </div>
-      <p class="footer-note">Built for developers and competitive programmers. Manifest V3 Chrome Extension. Not affiliated with or endorsed by LeetCode, GeeksforGeeks, Codeforces, CodeChef, or NeetCode.</p>
+      <p class="footer-note">Built for developers and competitive programmers. Manifest V3 browser extension. Not affiliated with or endorsed by LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, or HackerRank.</p>
     </div>
   </footer>
 

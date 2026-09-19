@@ -1,5 +1,5 @@
 CodeHub Extension Privacy Policy
-Last updated: August 27, 2026
+Last updated: September 19, 2026
 
 This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the CodeHub browser extension and informs you about your privacy rights.
 
@@ -20,6 +20,7 @@ A. Personal Data:
 - GitHub Username: Stored locally in your browser to identify your repository owner and display your profile in the Extension.
 - GitHub Authentication Token: Secure OAuth/access token generated during the GitHub authorization process, stored locally in your browser storage (`chrome.storage.local` / `browser.storage.local`) to authenticate commits and file uploads directly to your GitHub account.
 - Codeforces Handle (Optional): Stored locally in your browser to fetch and sync your public Codeforces submissions.
+- HackerRank challenge metadata: Public challenge pages, accepted submission code, titles, difficulty, tags, and statements are read locally in the browser. Private hiring assessments, tests, and interview pages are not synchronized.
 
 B. Problem & Submission Data:
 - Code submissions, problem titles, difficulty ratings, tags, and problem descriptions from supported platforms:
@@ -28,6 +29,7 @@ B. Problem & Submission Data:
   * Codeforces (https://codeforces.com)
   * CodeChef (https://www.codechef.com)
   * NeetCode (https://neetcode.io)
+  * HackerRank public challenges and contests (https://www.hackerrank.com)
 
 3. How We Use Your Data
 
@@ -42,6 +44,7 @@ We use the collected data solely to deliver the core features of the Extension:
 - No Proprietary Backend: CodeHub does not operate any external tracking servers, analytics databases, or intermediate servers.
 - GitHub API: Code submissions and repository files are transmitted directly from your browser to the official GitHub API (https://api.github.com) using your authenticated token.
 - Codeforces API: Public submission metadata is fetched directly from the official Codeforces API (https://codeforces.com/api) using the handle you provide.
+- HackerRank: Public challenge pages are read directly from HackerRank. When fullscreen mode hides the difficulty sidebar, CodeHub may request the canonical public problem URL without the fullscreen query parameter to read that metadata. This data is sent to GitHub only when you submit an accepted public challenge.
 - We do NOT sell, rent, monetize, or transfer your Personal Data or code submissions to any third parties or advertisers.
 
 5. Data Retention & Deletion
@@ -68,4 +71,3 @@ We may update our Privacy Policy periodically. We will notify you of any changes
 If you have questions or concerns regarding this Privacy Policy, please reach out:
 - GitHub: https://github.com/rishijain07/CodeHub/issues
 - Email: beingrishijain@gmail.com
-

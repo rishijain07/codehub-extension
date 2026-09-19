@@ -42,6 +42,13 @@
       mode: 'instant hook',
       detail: 'accepted on submit',
       accent: '#16b6b1'
+    },
+    hackerrank: {
+      name: 'HackerRank',
+      path: 'hackerrank/cpp-hello-world',
+      mode: 'public challenge hook',
+      detail: 'accepted on submit',
+      accent: '#00c46a'
     }
   };
 

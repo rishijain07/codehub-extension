@@ -1,6 +1,6 @@
 # CodeHub — Browser Extension
 
-> CodeHub is a free, privacy-first Chrome extension that automatically syncs your accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef & NeetCode into a single organized GitHub repository.
+> CodeHub is a free, privacy-first browser extension that automatically syncs your accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges into a single organized GitHub repository.
 
 - Website: https://rishijain07.github.io/codehub-extension/
 - Chrome Web Store: https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf
@@ -18,6 +18,11 @@ CodeHub eliminates the manual friction of copying and committing code after solv
 - **Codeforces**: Automatic background polling via the official public Codeforces API using your username handle. Syncs practice submissions and contest solutions.
 - **CodeChef**: Instant hook on accepted submissions for contests and practice problemsets.
 - **NeetCode**: Instant hook on NeetCode 150 & NeetCode 75 problem sets.
+- **HackerRank**: Instant hook for public Practice/Prepare challenges and anonymously public contest challenges. Fullscreen pages fall back to the canonical `/challenges/<slug>/problem` URL when difficulty is hidden; private hiring assessments, tests, and interview pages are excluded.
+
+### HackerRank output
+
+Accepted HackerRank submissions are written to `hackerrank/<challenge-slug>/solution.<extension>` with a generated README and tracked in `hackerrank/stats.json`. CodeHub reads Monaco, CodeMirror, or Ace editor content, preserves source text, retries temporary metadata/GitHub failures, and repairs stored `Unknown` difficulty values when canonical challenge metadata becomes available.
 
 ## Architecture & Privacy Model
 - **Zero Intermediary Servers**: CodeHub does not use any hosted backend or cloud database. All network requests travel directly from the user's browser to the platform API and the official GitHub REST API.
@@ -48,11 +53,16 @@ your-dsa-repo/
 ├── neetcode/
 │   └── neetcode-150/
 │       └── ...
+├── hackerrank/
+│   ├── cpp-hello-world/
+│   │   ├── solution.cpp
+│   │   └── README.md
+│   └── stats.json
 └── stats.json
 ```
 
 ## Comparison with LeetHub & Alternatives
-- **Multi-Platform**: LeetHub and other tools typically only support LeetCode. CodeHub unifies 5 major platforms in a single repository.
+- **Multi-Platform**: LeetHub and other tools typically only support LeetCode. CodeHub unifies 6 major platforms in a single repository.
 - **Manifest V3 Native**: CodeHub is built on modern Chrome Extensions Manifest V3 architecture with a service worker, ensuring long-term compatibility.
 - **Active Maintenance**: Continuously updated to adapt to UI changes on competitive programming websites.
 
@@ -61,4 +71,4 @@ your-dsa-repo/
 2. Click the CodeHub icon in your browser toolbar and select "Authenticate with GitHub".
 3. Enter the one-time device code at github.com/login/device to grant repo permissions.
 4. Select your target repository or let CodeHub create a clean `DSA-Solutions` repo.
-5. Solve problems on any supported platform — on "Accepted", CodeHub automatically commits your solution and documentation!
+5. Solve problems on any supported platform — on "Accepted", CodeHub automatically commits your solution and documentation. For HackerRank, Firefox 128+ is required for main-world editor access.
