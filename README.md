@@ -70,6 +70,12 @@ Never lose track of your accepted solutions again. Whenever you solve a problem 
 
 ## 🌟 Supported Platforms
 
+### Upcoming in v2.4.0: Code360 (Coding Ninjas)
+
+The next release adds accepted-solution syncing on supported Code360 problem pages at `naukri.com/code360/problems/` and Coding Ninjas problem pages. CodeHub captures submitted code, checks the final verdict through the platform API using the existing login session, and uploads solutions, READMEs, and statistics under `codingninjas/`.
+
+This feature is upcoming and is not yet part of the published store release. The [privacy policy](privacypolicy.txt) documents platform API requests, temporary problem-tab storage, and GitHub uploads for this release.
+
 | Platform | Badge | Output Folder | Sync Method |
 | :--- | :---: | :--- | :--- |
 | **[LeetCode](https://leetcode.com/)** | ![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=LeetCode&logoColor=black) | `leetcode/` | Instant Submission Hook |

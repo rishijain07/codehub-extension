@@ -6,7 +6,8 @@
 - Chrome Web Store: https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf
 - GitHub Repository: https://github.com/rishijain07/codehub-extension
 - Author: Rishi Jain (beingrishijain@gmail.com)
-- Current Version: v2.2.0 (Manifest V3)
+- Current website release: v2.3.0 (Manifest V3)
+- Upcoming release: v2.4.0 adds Code360 (Coding Ninjas); it is not yet published in the store.
 - Pricing: 100% Free & Open Ecosystem
 
 ## Overview & Value Proposition
@@ -25,9 +26,10 @@ CodeHub eliminates the manual friction of copying and committing code after solv
 Accepted HackerRank submissions are written to `hackerrank/<challenge-slug>/solution.<extension>` with a generated README and tracked in `hackerrank/stats.json`. CodeHub reads Monaco, CodeMirror, or Ace editor content, preserves source text, retries temporary metadata/GitHub failures, and repairs stored `Unknown` difficulty values when canonical challenge metadata becomes available.
 
 ## Architecture & Privacy Model
+- **Upcoming Code360 support**: Supported Code360 problem pages on naukri.com and Coding Ninjas problem pages sync accepted submissions under `codingninjas/`. The extension captures submitted code and language, fetches problem metadata and submission verdicts through same-origin platform API requests, and temporarily stores submission tracking data and source code in the problem tab's sessionStorage. Uploaded solutions, documentation, and progress statistics remain in the selected GitHub repository after uninstalling.
 - **Zero Intermediary Servers**: CodeHub does not use any hosted backend or cloud database. All network requests travel directly from the user's browser to the platform API and the official GitHub REST API.
 - **OAuth Device Flow**: Uses GitHub's secure Device Flow (`https://github.com/login/device`). The user never enters their GitHub password into the extension.
-- **Local Storage**: The GitHub OAuth token is stored strictly in `chrome.storage.local` within the user's browser sandbox and is never transmitted anywhere else.
+- **Local Storage**: The GitHub OAuth token is stored in extension storage and sent to the official GitHub API to authenticate repository operations. It is not sent to coding platforms.
 - **Private Repositories**: Supports both public and private GitHub repositories.
 
 ## Repository Folder Structure

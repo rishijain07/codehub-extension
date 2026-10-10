@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automatically Sync Coding Solutions to GitHub | CodeHub</title>
-  <meta name="description" content="Free CodeHub browser extension syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank to GitHub.">
+  <meta name="description" content="CodeHub automatically syncs accepted coding solutions to GitHub. Code360 (Coding Ninjas) support is coming in v2.4.0.">
   <meta name="author" content="Rishi Jain">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F5F7FA">
@@ -212,7 +212,7 @@
             <p class="section-label">Supported platforms</p>
             <h2 id="platforms-title">Sync solutions from the platforms you already use.</h2>
           </div>
-          <p>Choose a platform to preview the exact folder and sync mode CodeHub uses.</p>
+          <p>Choose a platform to preview its folder and sync mode. <strong>Coming in v2.4.0:</strong> Code360 (Coding Ninjas), with solutions saved under <code>codingninjas/</code>.</p>
         </div>
 
         <div class="platform-strip" role="group" aria-label="Preview a supported platform" data-reveal>
@@ -222,6 +222,7 @@
           <button class="platform-pill" type="button" data-platform="codechef" aria-pressed="false" aria-controls="commit-console">CodeChef <small>instant</small></button>
           <button class="platform-pill" type="button" data-platform="neetcode" aria-pressed="false" aria-controls="commit-console">NeetCode <small>instant</small></button>
           <button class="platform-pill" type="button" data-platform="hackerrank" aria-pressed="false" aria-controls="commit-console">HackerRank <small>public / instant</small></button>
+          <button class="platform-pill" type="button" data-platform="codingninjas" aria-pressed="false" aria-controls="commit-console">Code360 <small>upcoming · v2.4.0</small></button>
         </div>
       </div>
     </section>
@@ -305,7 +306,7 @@
             <strong>GitHub</strong>
             <span>api.github.com</span>
           </div>
-          <p class="route-note"><strong>No CodeHub backend.</strong> Codeforces metadata and public HackerRank challenge metadata are read directly from their official pages/APIs; your token and settings stay inside the extension sandbox.</p>
+          <p class="route-note"><strong>No CodeHub backend.</strong> Platform metadata is read directly from official pages and APIs. Upcoming Code360 support uses your existing platform session to check submission results and temporarily stores submission data in the problem tab. Accepted solutions and statistics go directly to your selected GitHub repository.</p>
         </div>
       </div>
     </section>
@@ -343,6 +344,10 @@
           <details>
             <summary>Is CodeHub free?</summary>
             <p>Yes. CodeHub is free to install from the <a href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">official Chrome Web Store listing</a>.</p>
+          </details>
+          <details>
+            <summary>When will Code360 (Coding Ninjas) support be available?</summary>
+            <p>Code360 support is planned for v2.4.0. It captures submitted code on supported Code360 and Coding Ninjas problem pages, confirms acceptance through the platform API, and saves the solution, README, and statistics under <code>codingninjas/</code> in your selected GitHub repository. The current store release does not yet include this feature.</p>
           </details>
         </div>
       </div>
