@@ -43,6 +43,13 @@
       detail: 'accepted on submit',
       accent: '#16b6b1'
     },
+    codingninjas: {
+      name: 'Code360 (Coding Ninjas)',
+      path: 'codingninjas/two-sum',
+      mode: 'upcoming in v2.4.0',
+      detail: 'preview · sync after acceptance',
+      accent: '#9a6b45'
+    },
     hackerrank: {
       name: 'HackerRank',
       path: 'hackerrank/cpp-hello-world',
@@ -82,7 +89,7 @@
     setText('[data-source-detail]', data.detail);
     setText('[data-source-path]', data.path);
     setText('[data-commit-path]', data.path + '/solution.cpp');
-    setText('[data-commit-hash]', key === 'codeforces' ? 'sync  ·  fetched from Codeforces API' : 'commit  ·  accepted solution captured');
+    setText('[data-commit-hash]', key === 'codingninjas' ? 'preview  ·  Code360 support coming in v2.4.0' : key === 'codeforces' ? 'sync  ·  fetched from Codeforces API' : 'commit  ·  accepted solution captured');
 
     var consoleElement = qs('[data-commit-console]');
     if (consoleElement) consoleElement.setAttribute('data-active-platform', key);
@@ -191,7 +198,7 @@
           onComplete: function () {
             nodes.forEach(function (node) { node.classList.add('is-live'); });
             var status = qs('[data-commit-status]');
-            if (status) status.textContent = platformData[activePlatform].name + ' is committed to GitHub.';
+            if (status) status.textContent = activePlatform === 'codingninjas' ? 'Code360 sync preview. Available with the upcoming v2.4.0 release.' : platformData[activePlatform].name + ' is committed to GitHub.';
           }
         });
 

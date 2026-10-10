@@ -1,5 +1,7 @@
 CodeHub Extension Privacy Policy
-Last updated: September 19, 2026
+Last updated: October 10, 2026
+
+Upcoming release: The Code360 (Coding Ninjas) disclosures below apply when you use CodeHub v2.4.0 with Code360 support. Publishing this policy does not mean that release is already available in the store.
 
 This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the CodeHub browser extension and informs you about your privacy rights.
 
@@ -30,6 +32,8 @@ B. Problem & Submission Data:
   * CodeChef (https://www.codechef.com)
   * NeetCode (https://neetcode.io)
   * HackerRank public challenges and contests (https://www.hackerrank.com)
+  * Code360 by Coding Ninjas (upcoming v2.4.0): https://www.naukri.com/code360/problems/ and supported problem pages on https://www.codingninjas.com
+- Code360 data includes submitted source code, programming language, problem identifier and URL, submission identifier and verdict, title, statement, difficulty, and available tags. CodeHub observes problem submissions and checks their final result before syncing accepted solutions.
 
 3. How We Use Your Data
 
@@ -40,12 +44,14 @@ We use the collected data solely to deliver the core features of the Extension:
 
 4. Data Storage & Third-Party Services
 
-- Local Storage Only: All tokens, handles, preferences (e.g., theme), and problem statistics are saved directly on your local device via browser extension storage (`chrome.storage.local` / `browser.storage.local`).
+- Browser Storage: Tokens, handles, preferences, and cached statistics are stored in browser extension storage (`chrome.storage.local` / `browser.storage.local`). Progress statistics are also written to your selected GitHub repository.
+- Code360 Temporary Storage: Submission tracking information, captured source code, and problem metadata may be stored in the problem tab's `sessionStorage` to track a submission across page reloads. This storage belongs to the platform page's origin and is normally cleared when the tab is closed.
 - No Proprietary Backend: CodeHub does not operate any external tracking servers, analytics databases, or intermediate servers.
 - GitHub API: Code submissions and repository files are transmitted directly from your browser to the official GitHub API (https://api.github.com) using your authenticated token.
 - Codeforces API: Public submission metadata is fetched directly from the official Codeforces API (https://codeforces.com/api) using the handle you provide.
 - HackerRank: Public challenge pages are read directly from HackerRank. When fullscreen mode hides the difficulty sidebar, CodeHub may request the canonical public problem URL without the fullscreen query parameter to read that metadata. This data is sent to GitHub only when you submit an accepted public challenge.
-- We do NOT sell, rent, monetize, or transfer your Personal Data or code submissions to any third parties or advertisers.
+- Code360: The extension reads supported problem pages and requests problem details and submission verdicts directly from the platform's API using your existing same-origin login session. Your Code360 session credentials are not sent to GitHub. After acceptance is confirmed, source code, generated documentation, and statistics are uploaded directly to your selected GitHub repository under `codingninjas/`.
+- We do not sell or rent your data or use it for advertising. Data is shared with GitHub and supported platforms only as described above to provide synchronization.
 
 5. Data Retention & Deletion
 
@@ -53,6 +59,7 @@ We use the collected data solely to deliver the core features of the Extension:
 - You can unlink your repository at any time via the Extension Dashboard or Popup, which removes repository configurations from local storage.
 - You can use the "Reset Stats" feature to clear locally cached problem statistics and delete `stats.json` tracking files from your GitHub repository.
 - Uninstalling the Extension instantly deletes all local storage data, tokens, and settings associated with CodeHub from your browser.
+- Uninstalling does not delete files or commit history already uploaded to GitHub, or platform-origin tab storage. Close Code360 tabs or clear the platform's site data to remove temporary tab storage. Manage uploaded files and repository visibility directly on GitHub; public repositories can expose your code and metadata to others.
 
 6. Security
 
