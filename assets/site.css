@@ -1155,10 +1155,41 @@ img {
   text-underline-offset: 3px;
 }
 
-.footer-note {
-  margin: 22px 0 0;
+.footer-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px 32px;
+  margin-top: 22px;
   padding-top: 18px;
   border-top: 1px solid var(--soft-rule);
+}
+
+.footer-visits {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 7px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.footer-visits:hover,
+.footer-visits:focus-visible {
+  border-color: var(--blue);
+}
+
+.footer-visits img {
+  display: block;
+  max-width: none;
+  height: 20px;
+}
+
+.footer-note {
+  max-width: 750px;
+  margin: 0;
   color: var(--muted);
   font-size: 0.7rem;
   line-height: 1.6;
@@ -1737,6 +1768,10 @@ img {
   .footer-links {
     justify-content: flex-start;
     gap: 10px 16px;
+  }
+
+  .footer-meta {
+    flex-direction: column;
   }
 
   .dialog-actions {
