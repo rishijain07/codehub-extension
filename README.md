@@ -7,7 +7,7 @@
   **Supercharge your competitive programming journey with automatic GitHub synchronization.**
 
   <p align="center">
-    Seamlessly sync your solutions from <b>LeetCode</b>, <b>GeeksforGeeks</b>, <b>Codeforces</b>, <b>CodeChef</b>, <b>NeetCode</b>, and public <b>HackerRank</b> challenges directly into a single, beautifully organized GitHub repository.
+    Seamlessly sync your solutions from <b>LeetCode</b>, <b>GeeksforGeeks</b>, <b>Codeforces</b>, <b>CodeChef</b>, <b>NeetCode</b>, public <b>HackerRank</b> challenges, and <b>Code360 (Coding Ninjas)</b> directly into a single, beautifully organized GitHub repository.
   </p>
 
   <!-- Badges -->
@@ -70,12 +70,6 @@ Never lose track of your accepted solutions again. Whenever you solve a problem 
 
 ## 🌟 Supported Platforms
 
-### Upcoming in v2.4.0: Code360 (Coding Ninjas)
-
-The next release adds accepted-solution syncing on supported Code360 problem pages at `naukri.com/code360/problems/` and Coding Ninjas problem pages. CodeHub captures submitted code, checks the final verdict through the platform API using the existing login session, and uploads solutions, READMEs, and statistics under `codingninjas/`.
-
-This feature is upcoming and is not yet part of the published store release. The [privacy policy](privacypolicy.txt) documents platform API requests, temporary problem-tab storage, and GitHub uploads for this release.
-
 | Platform | Badge | Output Folder | Sync Method |
 | :--- | :---: | :--- | :--- |
 | **[LeetCode](https://leetcode.com/)** | ![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=LeetCode&logoColor=black) | `leetcode/` | Instant Submission Hook |
@@ -84,21 +78,23 @@ This feature is upcoming and is not yet part of the published store release. The
 | **[CodeChef](https://www.codechef.com/)** | ![CodeChef](https://img.shields.io/badge/CodeChef-5B4638?style=flat-square&logo=CodeChef&logoColor=white) | `codechef/` | Instant Submission Hook |
 | **[NeetCode](https://neetcode.io/)** | ![NeetCode](https://img.shields.io/badge/NeetCode-00C49F?style=flat-square&logoColor=white) | `neetcode/` | Instant Submission Hook |
 | **[HackerRank](https://www.hackerrank.com/)** | ![HackerRank](https://img.shields.io/badge/HackerRank-00EA64?style=flat-square&logo=hackerrank&logoColor=black) | `hackerrank/` | Instant Submission Hook (public challenges) |
+| **[Code360 (Coding Ninjas)](https://www.naukri.com/code360/problems/)** | ![Code360](https://img.shields.io/badge/Code360-F37021?style=flat-square&logoColor=white) | `codingninjas/` | Instant Submission Hook |
 
 ---
 
 ## ✨ Key Features
 
-- ⚡ **Zero-Interruption Instant Sync**: Submissions on LeetCode, GFG, CodeChef, NeetCode, and public HackerRank challenges are synced immediately when you pass all test cases without disrupting your flow.
+- ⚡ **Zero-Interruption Instant Sync**: Submissions on LeetCode, GFG, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas) are synced immediately when you pass all test cases without disrupting your flow.
+- 🟠 **Code360 (Coding Ninjas) Integration**: Sync accepted solutions from `naukri.com/code360/problems/` and Coding Ninjas problem pages with problem descriptions, tags, and statistics saved under `codingninjas/`.
 - 🟣 **HackerRank Fullscreen Support**: Fullscreen challenge URLs can hide difficulty metadata, so CodeHub falls back to the canonical `/challenges/<slug>/problem` page and records the correct Easy/Medium/Hard rating.
 - 🛡️ **Public-Challenge Boundary**: HackerRank Practice/Prepare and anonymously public contest challenges are supported; hiring assessments, tests, and interview pages are excluded.
 - 🏆 **Automated Codeforces Background Tracker**: Periodically tracks your solved contest and practice problems on Codeforces via your handle.
 - 📊 **Unified Cross-Platform Analytics Hero**:
   - **Global Solved Counter**: Real-time counter aggregating total solved problems across all platforms.
   - **Difficulty Breakdown**: Standardized metrics for **Easy**, **Medium**, and **Hard**.
-  - **Platform Activity Share**: Interactive visual distribution bar highlighting your platform engagement across six platforms.
+  - **Platform Activity Share**: Interactive visual distribution bar highlighting your platform engagement across seven platforms.
 - 📂 **Auto-Generated Problem Documentation**: Every committed solution includes a detailed problem `README.md` containing description, tags, time/space constraints, and difficulty badges.
-- 🎯 **1-Click Platform Navigation**: Jump directly to platform subdirectories (`/leetcode`, `/geeksforgeeks`, `/codeforces`, etc.) in your repository straight from the extension popup.
+- 🎯 **1-Click Platform Navigation**: Jump directly to platform subdirectories (`/leetcode`, `/geeksforgeeks`, `/codeforces`, `/codingninjas`, etc.) in your repository straight from the extension popup.
 - 🔄 **On-Demand GitHub Re-Sync**: Synchronize local statistics with your repository's `stats.json` anytime with a single click.
 - 🌓 **Sleek Light & Dark Themes**: Modern, high-contrast, accessible UI tailored for day or night coding sessions.
 - 🔒 **Strict Zero-Server Privacy**: Operates 100% on the client side using official GitHub APIs and public platform pages. No intermediate servers, databases, or third-party trackers.
@@ -147,6 +143,10 @@ your-solutions-repo/
     └── valid-anagram/
         ├── README.md
         └── solution.py
+├── codingninjas/
+    └── two-sum/
+        ├── README.md
+        └── solution.cpp
 └── hackerrank/
     ├── cpp-hello-world/
     │   ├── README.md
@@ -173,9 +173,11 @@ Install **CodeHub** directly from the [Chrome Web Store](https://chromewebstore.
 2. *(Optional)* Add your **Codeforces handle** to activate background sync for Codeforces submissions.
 
 ### Step 4: Solve & Auto-Sync
-Solve any problem on LeetCode, GFG, Codeforces, CodeChef, NeetCode, or a public HackerRank challenge. Once your solution gets accepted, CodeHub automatically commits it to your GitHub repository!
+Solve any problem on LeetCode, GFG, Codeforces, CodeChef, NeetCode, a public HackerRank challenge, or Code360 (Coding Ninjas). Once your solution gets accepted, CodeHub automatically commits it to your GitHub repository!
 
 For HackerRank, submit from the normal challenge or fullscreen URL. CodeHub reads the active editor, writes the solution and README, and obtains missing difficulty metadata from the canonical non-fullscreen problem URL. Temporary metadata or GitHub failures are retried; previously stored `Unknown` HackerRank difficulty values can be repaired on a later accepted submission.
+
+For Code360 (Coding Ninjas), solve problems on supported Code360 (naukri.com) or Coding Ninjas problem pages. CodeHub observes problem submissions, checks final verdicts via same-origin platform API requests using your existing login session, and uploads solutions, READMEs, and statistics under `codingninjas/`.
 
 ---
 
@@ -221,7 +223,7 @@ We believe your code and credentials belong only to you:
 
 - 🛡️ **No Backend Servers**: CodeHub does not store or process your code on any third-party servers.
 - 🔑 **Secure Local Storage**: GitHub authentication tokens and configurations are stored solely in your browser's isolated `chrome.storage.local`.
-- 🌐 **Direct API Communication**: All requests communicate directly and securely via HTTPS with the official GitHub API (`api.github.com`), Codeforces API (`codeforces.com/api`), and public HackerRank challenge pages.
+- 🌐 **Direct API Communication**: All requests communicate directly and securely via HTTPS with the official GitHub API (`api.github.com`), Codeforces API (`codeforces.com/api`), public HackerRank challenge pages, and official Code360 / Coding Ninjas platform APIs.
 - 🧹 **Total Control**: You can unlink your repository, reset cached stats, or uninstall the extension at any time to immediately purge all local data.
 
 For full details, please refer to our [Privacy Policy](privacypolicy.txt).

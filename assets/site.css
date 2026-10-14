@@ -728,6 +728,8 @@ img {
 .platform-pill[data-platform="codeforces"]::before { background: #278acb; }
 .platform-pill[data-platform="codechef"]::before { background: #9a6b45; }
 .platform-pill[data-platform="neetcode"]::before { background: #16b6b1; }
+.platform-pill[data-platform="hackerrank"]::before { background: #00c46a; }
+.platform-pill[data-platform="codingninjas"]::before { background: #f37021; }
 
 .platform-pill small {
   display: block;
