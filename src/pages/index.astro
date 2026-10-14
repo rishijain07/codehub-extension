@@ -1,0 +1,581 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/manrope';
+import '@fontsource/ibm-plex-mono/400.css';
+import displayFont from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
+import bodyFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+import {
+  ArrowRightIcon,
+  ArrowTopRightIcon,
+  CheckIcon,
+  GitHubLogoIcon,
+  LockClosedIcon,
+  CodeIcon,
+  FileTextIcon,
+  SunIcon,
+  MoonIcon,
+  PauseIcon,
+  PlayIcon,
+} from '@radix-ui/react-icons';
+import InstallButton from '@/components/InstallButton';
+import { Separator } from '@/components/ui/separator';
+import AskAI from '@/components/AskAI';
+import Platforms from '@/components/Platforms';
+import FAQ from '@/components/FAQ';
+import { asset, SITE, STORE, REPO, platforms, faqs } from '@/lib/content';
+
+const title = 'CodeHub | Auto-sync LeetCode & DSA Solutions to GitHub';
+const description =
+  'Save every accepted solution to GitHub automatically. CodeHub is a free browser extension for LeetCode, GFG, Codeforces, CodeChef, NeetCode, HackerRank and Code360.';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}#website`,
+      name: 'CodeHub',
+      url: SITE,
+      inLanguage: 'en',
+      description,
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${SITE}#software`,
+      name: 'CodeHub',
+      url: SITE,
+      description,
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Windows, macOS, Linux, ChromeOS',
+      browserRequirements:
+        'Chrome, Brave, Edge, or compatible Chromium browser. Firefox support requires Firefox 128+ for HackerRank.',
+      softwareVersion: '2.4.0',
+      downloadUrl: STORE,
+      image: `${SITE}assets/codehub-social-card.png`,
+      screenshot: `${SITE}assets/stats.png`,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      author: {
+        '@type': 'Person',
+        name: 'Rishi Jain',
+        url: 'https://github.com/rishijain07',
+      },
+      featureList: platforms.map((p) => `${p.name} accepted solution sync`),
+      sameAs: REPO,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+  ],
+};
+const journey = [
+  {
+    title: 'Connect once.',
+    text: 'Install CodeHub and authorize it with GitHub Device Flow. Your password stays on GitHub.',
+    image: 'auth-detail.webp',
+    alt: 'Real CodeHub extension authentication screen with GitHub device authorization',
+    label: 'Authenticate with GitHub',
+  },
+  {
+    title: 'Make it yours.',
+    text: 'Choose a public or private repository. Add your Codeforces handle for background sync.',
+    image: 'setup-detail.webp',
+    alt: 'Real CodeHub welcome screen for choosing a GitHub solutions repository',
+    label: 'Choose your repository',
+  },
+  {
+    title: 'Keep solving.',
+    text: 'Accepted code, problem READMEs, and statistics go straight to your GitHub repository.',
+    image: 'dashboard.webp',
+    alt: 'Real CodeHub dashboard with a cross-platform solution library and difficulty breakdown',
+    label: 'Build your solution library',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Rishi Jain" />
+    <meta name="theme-color" content="#f2f4f8" />
+    <meta
+      name="google-site-verification"
+      content="fIn7rdm0KMBVbsFaKfNsXn-Lv02S1xSV8qaXEUE-XME"
+    />
+    <link rel="canonical" href={SITE} />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="CodeHub documentation for AI agents"
+      href={asset('llms.txt')}
+    />
+    <link rel="icon" href={asset('assets/logo128.png')} type="image/png" />
+    <link rel="apple-touch-icon" href={asset('assets/logo128.png')} />
+    <link
+      rel="preload"
+      href={displayFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={bodyFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href={asset('assets/popup-detail.webp')} as="image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodeHub" />
+    <meta property="og:url" content={SITE} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={`${SITE}assets/codehub-social-card.png`}
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="CodeHub extension and solution library"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={`${SITE}assets/codehub-social-card.png`}
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('codehub-theme');
+        document.documentElement.dataset.theme =
+          theme ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+        document.documentElement.dataset.motion =
+          localStorage.getItem('codehub-motion') || 'on';
+      } catch {
+        /* The site follows system defaults when storage is unavailable. */
+      }
+    </script>
+    <noscript>
+      <style>
+        .faq-list {
+          display: none;
+        }
+        .hero-actions [data-slot='dialog-trigger'] {
+          display: none;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <div class="shell nav-shell">
+        <a class="brand" href="#top" aria-label="CodeHub home">
+          <img
+            src={asset('assets/logo128.png')}
+            alt=""
+            width="34"
+            height="34"
+          />
+          <span>CodeHub</span>
+        </a>
+        <nav aria-label="Primary navigation" class="desktop-nav">
+          <a href="#how-it-works">How it works</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="icon-button theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            <SunIcon className="sun-icon" />
+            <MoonIcon className="moon-icon" />
+          </button>
+          <InstallButton size="sm" />
+        </div>
+      </div>
+    </header>
+    <details class="mobile-navigation">
+      <summary>Explore CodeHub</summary>
+      <nav aria-label="Mobile navigation">
+        <a href="#platforms">Platforms</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </details>
+
+    <main id="main">
+      <section class="hero shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-eyebrow" data-hero-reveal>
+            A home for your hard work.
+          </p>
+          <h1 id="hero-title">
+            <span class="hero-line">
+              <span data-hero-word>Every solve.</span>
+            </span>
+            <span class="hero-line hero-line-accent">
+              <span data-hero-word>Yours to keep.</span>
+            </span>
+          </h1>
+          <p class="hero-description" data-hero-reveal>
+            Automatically sync accepted coding solutions to GitHub.
+            <br class="desktop-break" />
+            Seven platforms. One repository. All yours.
+          </p>
+          <div class="hero-actions" data-hero-reveal>
+            <InstallButton showChrome />
+            <AskAI client:load />
+          </div>
+        </div>
+        <figure
+          class="hero-art"
+          aria-label="CodeHub extension preview with an illustrated contribution mosaic"
+        >
+          <div class="contribution-field" aria-hidden="true">
+            {Array.from({ length: 180 }, (_, i) => (
+              <span
+                class:list={[
+                  'commit-tile',
+                  `tone-${(i * 7 + Math.floor(i / 18) * 3) % 5}`,
+                ]}
+              />
+            ))}
+          </div>
+          <div class="hero-image-wrap">
+            <img
+              class="hero-product"
+              src={asset('assets/popup-detail.webp')}
+              alt="CodeHub extension popup showing accepted solutions saved to GitHub and counts by coding platform"
+              width="650"
+              height="873"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <figcaption>Real extension. Your solutions, synced.</figcaption>
+        </figure>
+      </section>
+
+      <section
+        id="platforms"
+        class="platforms-section shell"
+        aria-labelledby="platforms-title"
+      >
+        <div class="platforms-intro">
+          <span class="platform-count">
+            7<span aria-hidden="true">↗</span>
+          </span>
+          <div>
+            <h2 id="platforms-title">
+              Your platforms.
+              <br />
+              One destination.
+            </h2>
+            <p>
+              From LeetCode practice to Codeforces contests,
+              <br />
+              keep your accepted solutions together.
+            </p>
+          </div>
+        </div>
+        <Platforms client:visible />
+      </section>
+
+      <section
+        id="how-it-works"
+        class="journey"
+        aria-labelledby="journey-title"
+      >
+        <div class="shell journey-heading">
+          <h2 id="journey-title" data-reveal>
+            From “Accepted”
+            <br />
+            to part of your story.
+          </h2>
+          <p data-reveal>
+            Set up CodeHub once. The next time you solve a problem, the
+            bookkeeping takes care of itself.
+          </p>
+        </div>
+        <div class="journey-viewport">
+          <div class="journey-track">
+            {journey.map((step, index) => (
+              <article class="journey-panel">
+                <div class="journey-copy">
+                  <span
+                    class="process-index"
+                    aria-label={`Setup step ${index + 1}`}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                  <span class="journey-label">
+                    <CheckIcon aria-hidden="true" />
+                    {step.label}
+                  </span>
+                </div>
+                <figure class="journey-media">
+                  <img
+                    src={asset(`assets/${step.image}`)}
+                    srcset={`${asset(`assets/${step.image.replace('.webp', '-480.webp')}`)} 480w, ${asset(`assets/${step.image.replace('.webp', '-800.webp')}`)} 800w, ${asset(`assets/${step.image}`)} ${index === 2 ? 1280 : index === 1 ? 1200 : 1000}w`}
+                    sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) 50vw, 55vw"
+                    alt={step.alt}
+                    width={index === 2 ? '1280' : index === 1 ? '1200' : '1000'}
+                    height={index === 2 ? '800' : index === 1 ? '1038' : '677'}
+                    loading="lazy"
+                  />
+                </figure>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="features"
+        class="features-section shell"
+        aria-labelledby="features-title"
+      >
+        <div class="feature-heading">
+          <h2 id="features-title" data-reveal>
+            Practice adds up.
+            <br />
+            <span>Now you can see it.</span>
+          </h2>
+          <p data-reveal>
+            An organized solution library, useful problem documentation, and a
+            clear view of your progress across platforms.
+          </p>
+        </div>
+        <figure class="dashboard-figure" data-reveal>
+          <img
+            src={asset('assets/dashboard.webp')}
+            srcset={`${asset('assets/dashboard-480.webp')} 480w, ${asset('assets/dashboard-800.webp')} 800w, ${asset('assets/dashboard.webp')} 1280w`}
+            sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1399px) calc(100vw - 112px), 1280px"
+            alt="CodeHub dashboard showing a real example solution library, difficulty totals, platform statistics, and a linked GitHub repository"
+            width="1280"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            Your solution library, inside CodeHub. Screenshot shows example
+            progress.
+          </figcaption>
+        </figure>
+        <div class="feature-notes">
+          <article data-reveal>
+            <FileTextIcon aria-hidden="true" />
+            <h3>Context comes with the code.</h3>
+            <p>
+              Generated READMEs keep problem descriptions, tags, and difficulty
+              alongside your solution.
+            </p>
+          </article>
+          <article data-reveal>
+            <CodeIcon aria-hidden="true" />
+            <h3>A place for every platform.</h3>
+            <p>
+              Platform folders and problem directories keep your repository
+              ready to revisit.
+            </p>
+          </article>
+          <article data-reveal>
+            <GitHubLogoIcon aria-hidden="true" />
+            <h3>History that stays yours.</h3>
+            <p>
+              New submissions become commits. Your earlier work stays in Git
+              history.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="privacy"
+        class="privacy-section shell"
+        aria-labelledby="privacy-title"
+      >
+        <div class="privacy-statement">
+          <LockClosedIcon aria-hidden="true" />
+          <h2 id="privacy-title" data-reveal>
+            Your code takes
+            <br />
+            the direct route.
+          </h2>
+          <p data-reveal>
+            Your browser talks directly to GitHub and the coding platforms. No
+            CodeHub server. No hosted copy of your solutions.
+          </p>
+          <a href={asset('privacypolicy.txt')} class="text-link">
+            Read the privacy policy
+            <ArrowTopRightIcon aria-hidden="true" />
+          </a>
+        </div>
+        <div
+          class="privacy-visual"
+          aria-label="Your browser sends accepted code directly to your GitHub repository"
+        >
+          <div class="route-end">
+            <img
+              src={asset('assets/logo128.png')}
+              alt=""
+              width="56"
+              height="56"
+            />
+            <strong>Your browser</strong>
+            <span>CodeHub extension</span>
+          </div>
+          <div class="route-line" aria-hidden="true">
+            <span class="route-packet" />
+            <ArrowRightIcon />
+          </div>
+          <div class="route-end">
+            <GitHubLogoIcon aria-hidden="true" />
+            <strong>Your repository</strong>
+            <span>Public or private</span>
+          </div>
+          <p>You choose the destination.</p>
+        </div>
+        <div class="privacy-notes">
+          <p>
+            <strong>Your password stays with GitHub.</strong> Authorize through
+            GitHub Device Flow. Your token is stored in extension storage.
+          </p>
+          <p>
+            <strong>Your code goes to the repo you select.</strong> Code360
+            checks use your existing platform session and temporary in-tab
+            tracking.
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" class="faq-section shell" aria-labelledby="faq-title">
+        <div>
+          <h2 id="faq-title" data-reveal>
+            Good questions.
+            <br />
+            Straight answers.
+          </h2>
+          <p>
+            Something else on your mind?
+            <br />
+            <a
+              class="text-link"
+              href={`${REPO}/issues`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ask on GitHub
+              <ArrowTopRightIcon aria-hidden="true" />
+            </a>
+          </p>
+        </div>
+        <FAQ client:visible />
+        <noscript>
+          <div class="native-faq">
+            {faqs.map((faq) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </noscript>
+      </section>
+
+      <section
+        id="install"
+        class="closing-section shell"
+        aria-labelledby="closing-title"
+      >
+        <div class="closing-mosaic" aria-hidden="true">
+          {Array.from({ length: 70 }, (_, i) => (
+            <span
+              class:list={[
+                'closing-tile',
+                `tone-${(i * 3 + Math.floor(i / 14)) % 5}`,
+              ]}
+            />
+          ))}
+        </div>
+        <div class="closing-copy">
+          <p>Less copying. More coding.</p>
+          <h2 id="closing-title" data-reveal>
+            Make your next
+            <br />
+            solve a commit.
+          </h2>
+          <InstallButton />
+          <span class="free-note">
+            Free to install. Public and private repositories.
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <Separator />
+      <div class="footer-main">
+        <a class="brand" href="#top">
+          <img
+            src={asset('assets/logo128.png')}
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span>CodeHub</span>
+        </a>
+        <p>Built for the work you put in.</p>
+        <nav aria-label="Footer navigation">
+          <a href={REPO} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          <a href={`${REPO}/issues`} target="_blank" rel="noopener noreferrer">
+            Support
+          </a>
+          <a href={asset('privacypolicy.txt')}>Privacy</a>
+          <a href={asset('llms.txt')}>AI docs</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          By <a href="https://github.com/rishijain07">Rishi Jain</a>. Not
+          affiliated with or endorsed by the supported platforms.
+        </p>
+        <button class="motion-toggle" type="button" aria-pressed="false">
+          <PauseIcon className="pause-icon" />
+          <PlayIcon className="play-icon" />
+          <span>Pause motion</span>
+        </button>
+      </div>
+    </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>

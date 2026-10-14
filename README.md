@@ -42,6 +42,23 @@
 
 ---
 
+## Website development
+
+The marketing website uses Astro static generation, React islands, shadcn/ui, Tailwind CSS, and GSAP. The source is in `src/pages/index.astro`; the browser extension source remains in its own project.
+
+```sh
+npm ci
+npm run dev
+```
+
+Open `http://127.0.0.1:4321/codehub-extension/`. Use `npm run check` for type checking, `npm run build` to generate `dist/`, and `npm run preview` to view the production build. The old root `index.html` has been replaced by Astro's generated HTML.
+
+Original screenshots stay in `assets/` for the README. `scripts/prepare-assets.mjs` copies public files, generates optimized WebP product crops, and vendors provider logos into `public/`. Generated assets, fonts, and JavaScript are served locally; provider logos make no third-party requests. The original logo and privacy policy are preserved.
+
+GitHub Pages builds and publishes `dist/` after pushes to `main`. The canonical URL, repository base path, Google verification, existing section anchors, and legal/documentation URLs are preserved. The redesign branch does not publish automatically.
+
+See [the design rationale](docs/redesign.md). After installing Playwright Chromium with `npx playwright install chromium`, use `npm test` for browser, responsive, accessibility, clipboard, and static-HTML checks.
+
 ## 📑 Table of Contents
 
 - [💡 What is CodeHub?](#-what-is-codehub)
