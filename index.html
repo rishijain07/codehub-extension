@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automatically Sync Coding Solutions to GitHub | CodeHub</title>
-  <meta name="description" content="CodeHub automatically syncs accepted coding solutions to GitHub. Code360 (Coding Ninjas) support is coming in v2.4.0.">
+  <meta name="description" content="Free CodeHub browser extension automatically syncs accepted coding solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, HackerRank, and Code360 (Coding Ninjas) to GitHub.">
   <meta name="author" content="Rishi Jain">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F5F7FA">
   <meta name="google-site-verification" content="fIn7rdm0KMBVbsFaKfNsXn-Lv02S1xSV8qaXEUE-XME">
-  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, HackerRank GitHub, public HackerRank challenges, browser extension, DSA, competitive programming">
+  <meta name="keywords" content="CodeHub, LeetCode to GitHub, GFG to GitHub, Codeforces sync, CodeChef GitHub, NeetCode GitHub, HackerRank GitHub, Code360 GitHub, Coding Ninjas GitHub, public HackerRank challenges, browser extension, DSA, competitive programming">
 
   <link rel="canonical" href="https://rishijain07.github.io/codehub-extension/">
   <link rel="alternate" type="text/markdown" title="CodeHub LLM Documentation" href="llms.txt">
@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://rishijain07.github.io/codehub-extension/">
   <meta property="og:site_name" content="CodeHub">
   <meta property="og:title" content="Automatically Sync Coding Solutions to GitHub | CodeHub">
-  <meta property="og:description" content="CodeHub automatically syncs accepted solutions from six coding platforms into the GitHub repository you choose.">
+  <meta property="og:description" content="CodeHub automatically syncs accepted solutions from seven coding platforms into the GitHub repository you choose.">
   <meta property="og:image" content="https://rishijain07.github.io/codehub-extension/assets/codehub-social-card.png">
   <meta property="og:image:alt" content="CodeHub dashboard showing accepted coding solutions organized by platform">
   <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://rishijain07.github.io/codehub-extension/">
   <meta name="twitter:title" content="Automatically Sync Coding Solutions to GitHub | CodeHub">
-  <meta name="twitter:description" content="CodeHub automatically syncs accepted solutions from six coding platforms into the GitHub repository you choose.">
+  <meta name="twitter:description" content="CodeHub automatically syncs accepted solutions from seven coding platforms into the GitHub repository you choose.">
   <meta name="twitter:image" content="https://rishijain07.github.io/codehub-extension/assets/codehub-social-card.png">
   <meta name="twitter:image:alt" content="CodeHub dashboard showing accepted coding solutions organized by platform">
 
@@ -62,16 +62,16 @@
         "@id": "https://rishijain07.github.io/codehub-extension/#software",
         "name": "CodeHub",
         "url": "https://rishijain07.github.io/codehub-extension/",
-        "description": "CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges to GitHub.",
+        "description": "CodeHub automatically syncs accepted solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas) to GitHub.",
         "operatingSystem": "Windows, macOS, Linux, ChromeOS",
         "browserRequirements": "Chrome, Firefox 128+, Brave, Edge, or Chromium",
         "applicationCategory": "DeveloperApplication",
-        "softwareVersion": "2.3.0",
+        "softwareVersion": "2.4.0",
         "downloadUrl": "https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf",
         "sameAs": "https://github.com/rishijain07/codehub-extension",
         "featureList": [
           "Automatically sync accepted coding solutions to GitHub",
-          "Support for six DSA and competitive programming platforms",
+          "Support for seven DSA and competitive programming platforms",
           "Client-side GitHub Device Flow authentication"
         ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -100,7 +100,7 @@
       <a class="brand" href="#top" aria-label="CodeHub home">
         <img src="assets/logo128.png" alt="">
         <span>CodeHub</span>
-        <span class="brand-version">v2.3.0</span>
+        <span class="brand-version">v2.4.0</span>
       </a>
 
       <nav class="desktop-nav" aria-label="Primary navigation">
@@ -123,7 +123,7 @@
         <div class="hero-copy" data-motion="hero-copy">
           <p class="eyebrow">Automatic DSA solution sync</p>
           <h1 id="hero-title" class="hero-title">Automatically sync accepted coding solutions<br><em>straight to GitHub.</em></h1>
-          <p class="hero-lede">CodeHub is a free browser extension that automatically syncs accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges into the GitHub repository you choose.</p>
+          <p class="hero-lede">CodeHub is a free browser extension that automatically syncs accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas) into the GitHub repository you choose.</p>
 
           <div class="hero-actions">
             <a class="button button--primary" href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">
@@ -212,7 +212,7 @@
             <p class="section-label">Supported platforms</p>
             <h2 id="platforms-title">Sync solutions from the platforms you already use.</h2>
           </div>
-          <p>Choose a platform to preview its folder and sync mode. <strong>Coming in v2.4.0:</strong> Code360 (Coding Ninjas), with solutions saved under <code>codingninjas/</code>.</p>
+          <p>Choose a platform to preview its folder and sync mode, including Code360 (Coding Ninjas) saved under <code>codingninjas/</code>.</p>
         </div>
 
         <div class="platform-strip" role="group" aria-label="Preview a supported platform" data-reveal>
@@ -222,7 +222,7 @@
           <button class="platform-pill" type="button" data-platform="codechef" aria-pressed="false" aria-controls="commit-console">CodeChef <small>instant</small></button>
           <button class="platform-pill" type="button" data-platform="neetcode" aria-pressed="false" aria-controls="commit-console">NeetCode <small>instant</small></button>
           <button class="platform-pill" type="button" data-platform="hackerrank" aria-pressed="false" aria-controls="commit-console">HackerRank <small>public / instant</small></button>
-          <button class="platform-pill" type="button" data-platform="codingninjas" aria-pressed="false" aria-controls="commit-console">Code360 <small>upcoming · v2.4.0</small></button>
+          <button class="platform-pill" type="button" data-platform="codingninjas" aria-pressed="false" aria-controls="commit-console">Code360 <small>instant</small></button>
         </div>
       </div>
     </section>
@@ -236,7 +236,7 @@
             <p>Every accepted solution becomes a useful piece of your proof of work, organized by platform and documented for the next time you revisit it.</p>
             <ul class="proof-list">
               <li>Code file and problem README are committed together.</li>
-              <li>Progress from six platforms stays in one history.</li>
+              <li>Progress from seven platforms stays in one history.</li>
               <li>Open the right platform folder from the extension popup.</li>
             </ul>
           </div>
@@ -244,7 +244,7 @@
           <figure class="product-frame">
             <picture>
               <source srcset="assets/stats-popup.webp" type="image/webp">
-              <img src="assets/stats-popup.png" width="2560" height="1732" loading="lazy" alt="CodeHub extension popup showing synchronized problem counts across six platforms">
+              <img src="assets/stats-popup.png" width="2560" height="1732" loading="lazy" alt="CodeHub extension popup showing synchronized problem counts across seven platforms">
             </picture>
             <figcaption>CodeHub popup · a single view of your synced progress</figcaption>
           </figure>
@@ -306,7 +306,7 @@
             <strong>GitHub</strong>
             <span>api.github.com</span>
           </div>
-          <p class="route-note"><strong>No CodeHub backend.</strong> Platform metadata is read directly from official pages and APIs. Upcoming Code360 support uses your existing platform session to check submission results and temporarily stores submission data in the problem tab. Accepted solutions and statistics go directly to your selected GitHub repository.</p>
+          <p class="route-note"><strong>No CodeHub backend.</strong> Platform metadata is read directly from official pages and APIs. Code360 support uses your existing platform session to check submission results and temporarily stores submission tracking data in the problem tab. Accepted solutions and statistics go directly to your selected GitHub repository.</p>
         </div>
       </div>
     </section>
@@ -323,7 +323,7 @@
         <div class="faq-list" data-reveal>
           <details>
             <summary>Which coding platforms can CodeHub sync to GitHub?</summary>
-            <p>CodeHub supports LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, and public HackerRank challenges.</p>
+            <p>CodeHub supports LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas).</p>
           </details>
           <details>
             <summary>Does CodeHub work with private GitHub repositories?</summary>
@@ -346,8 +346,8 @@
             <p>Yes. CodeHub is free to install from the <a href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank" rel="noopener noreferrer">official Chrome Web Store listing</a>.</p>
           </details>
           <details>
-            <summary>When will Code360 (Coding Ninjas) support be available?</summary>
-            <p>Code360 support is planned for v2.4.0. It captures submitted code on supported Code360 and Coding Ninjas problem pages, confirms acceptance through the platform API, and saves the solution, README, and statistics under <code>codingninjas/</code> in your selected GitHub repository. The current store release does not yet include this feature.</p>
+            <summary>How does Code360 (Coding Ninjas) synchronization work?</summary>
+            <p>CodeHub captures submitted code on supported Code360 and Coding Ninjas problem pages, confirms acceptance through the platform API using your active session, and saves the solution, README, and statistics under <code>codingninjas/</code> in your selected GitHub repository.</p>
           </details>
         </div>
       </div>
@@ -390,7 +390,7 @@
         </nav>
       </div>
       <div class="footer-meta">
-        <p class="footer-note">Built for developers and competitive programmers. Manifest V3 browser extension. Not affiliated with or endorsed by LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, or HackerRank.</p>
+        <p class="footer-note">Built for developers and competitive programmers. Manifest V3 browser extension. Not affiliated with or endorsed by LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, HackerRank, or Coding Ninjas / Code360.</p>
         <a class="footer-visits" href="https://hits.sh/rishijain07.github.io/codehub-extension/" target="_blank" rel="noopener noreferrer" aria-label="View CodeHub page visit statistics">
           <img src="https://hits.sh/rishijain07.github.io/codehub-extension.svg?label=total%20visits&amp;color=196cff&amp;labelColor=172033&amp;style=flat-square" alt="Total visits to the CodeHub page" referrerpolicy="no-referrer">
         </a>

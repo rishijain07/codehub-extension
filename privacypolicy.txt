@@ -1,7 +1,5 @@
 CodeHub Extension Privacy Policy
-Last updated: October 10, 2026
-
-Upcoming release: The Code360 (Coding Ninjas) disclosures below apply when you use CodeHub v2.4.0 with Code360 support. Publishing this policy does not mean that release is already available in the store.
+Last updated: October 14, 2026
 
 This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the CodeHub browser extension and informs you about your privacy rights.
 
@@ -32,7 +30,7 @@ B. Problem & Submission Data:
   * CodeChef (https://www.codechef.com)
   * NeetCode (https://neetcode.io)
   * HackerRank public challenges and contests (https://www.hackerrank.com)
-  * Code360 by Coding Ninjas (upcoming v2.4.0): https://www.naukri.com/code360/problems/ and supported problem pages on https://www.codingninjas.com
+  * Code360 by Coding Ninjas: https://www.naukri.com/code360/problems/ and supported problem pages on https://www.codingninjas.com
 - Code360 data includes submitted source code, programming language, problem identifier and URL, submission identifier and verdict, title, statement, difficulty, and available tags. CodeHub observes problem submissions and checks their final result before syncing accepted solutions.
 
 3. How We Use Your Data
