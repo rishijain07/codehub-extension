@@ -323,13 +323,23 @@ img {
   content: "";
 }
 
+.hero-copy .eyebrow {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.eyebrow-sub {
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .hero-title {
   max-width: 660px;
   margin: 20px 0 0;
   font-family: var(--display);
   font-size: clamp(3rem, 6.1vw, 5.55rem);
   font-weight: 700;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.035em;
   line-height: 0.98;
 }
 
