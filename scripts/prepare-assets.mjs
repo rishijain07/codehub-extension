@@ -19,13 +19,23 @@ for (const file of [
 }
 for (const file of [
   'robots.txt',
-  'sitemap.xml',
   'llms.txt',
   'privacypolicy.txt',
   '.nojekyll',
 ]) {
   await cp(file, `public/${file}`);
 }
+const siteUrl = process.env.DEPLOY_TARGET === 'netlify'
+  ? 'https://codehub-extension.netlify.app/'
+  : 'https://rishijain07.github.io/codehub-extension/';
+await writeFile(
+  'public/robots.txt',
+  `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}sitemap.xml\n`,
+);
+await writeFile(
+  'public/sitemap.xml',
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${siteUrl}</loc>\n    <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n`,
+);
 await cp('docs/asset-attribution.md', 'public/assets/attribution.txt');
 for (const name of [
   'leetcode',
@@ -70,7 +80,8 @@ for (const name of ['dashboard', 'auth-detail', 'setup-detail']) {
       .toFile(`public/assets/${name}-${width}.webp`);
   }
 }
+const home = process.env.DEPLOY_TARGET === 'netlify' ? '/' : '/codehub-extension/';
 await writeFile(
   'public/404.html',
-  '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Page not found | CodeHub</title><body style="font-family:system-ui;padding:8vw"><h1>This page moved.</h1><p><a href="/codehub-extension/">Go to CodeHub</a></p></body></html>',
+  `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Page not found | CodeHub</title><body style="font-family:system-ui;padding:8vw"><h1>Page not found.</h1><p><a href="${home}">Go to CodeHub</a></p></body></html>`,
 );
