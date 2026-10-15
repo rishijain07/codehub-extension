@@ -1,4 +1,4 @@
-export const SITE = 'https://rishijain07.github.io/codehub-extension/';
+export const SITE = new URL(import.meta.env.BASE_URL, import.meta.env.SITE).href;
 export const STORE =
   'https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf';
 export const REPO = 'https://github.com/rishijain07/codehub-extension';
