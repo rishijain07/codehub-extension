@@ -25,9 +25,9 @@ import Platforms from '@/components/Platforms';
 import FAQ from '@/components/FAQ';
 import { asset, SITE, STORE, REPO, platforms, faqs } from '@/lib/content';
 
-const title = 'CodeHub | Auto-sync LeetCode & DSA Solutions to GitHub';
+const title = 'CodeHub | Auto-sync Coding Solutions to GitHub';
 const description =
-  'Save every accepted solution to GitHub automatically. CodeHub is a free browser extension for LeetCode, GFG, Codeforces, CodeChef, NeetCode, HackerRank and Code360.';
+  'Save accepted coding solutions to GitHub automatically. CodeHub is a free browser extension for LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, HackerRank, Code360, AtCoder, InterviewBit, and AlgoExpert.';
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -49,7 +49,7 @@ const schema = {
       operatingSystem: 'Windows, macOS, Linux, ChromeOS',
       browserRequirements:
         'Chrome, Brave, Edge, or compatible Chromium browser. Firefox support requires Firefox 128+ for HackerRank.',
-      softwareVersion: '2.4.0',
+      softwareVersion: '2.5.0',
       downloadUrl: STORE,
       image: `${SITE}assets/codehub-social-card.png`,
       screenshot: `${SITE}assets/stats.png`,
@@ -256,7 +256,7 @@ const journey = [
           <p class="hero-description" data-hero-reveal>
             Automatically sync accepted coding solutions to GitHub.
             <br class="desktop-break" />
-            Seven platforms. One repository. All yours.
+            Ten platforms. One repository. All yours.
           </p>
           <div class="hero-actions" data-hero-reveal>
             <InstallButton showChrome />
@@ -299,7 +299,7 @@ const journey = [
       >
         <div class="platforms-intro">
           <span class="platform-count">
-            7<span aria-hidden="true">↗</span>
+            {platforms.length}<span aria-hidden="true">↗</span>
           </span>
           <div>
             <h2 id="platforms-title">
@@ -441,8 +441,9 @@ const journey = [
             the direct route.
           </h2>
           <p data-reveal>
-            Your browser talks directly to GitHub and the coding platforms. No
-            CodeHub server. No hosted copy of your solutions.
+            Your extension talks directly to GitHub and coding platforms. No
+            CodeHub upload server. Your solutions stay in the repository you
+            choose.
           </p>
           <a href={asset('privacypolicy.txt')} class="text-link">
             Read the privacy policy
@@ -480,9 +481,14 @@ const journey = [
             GitHub Device Flow. Your token is stored in extension storage.
           </p>
           <p>
-            <strong>Your code goes to the repo you select.</strong> Code360
-            checks use your existing platform session and temporary in-tab
-            tracking.
+            <strong>Your code goes to the repo you select.</strong> Platform
+            sessions stay in your browser. New AtCoder, InterviewBit, and
+            AlgoExpert submissions use short-lived, tab-scoped tracking.
+          </p>
+          <p>
+            <strong>Website traffic is measured separately.</strong> This
+            marketing site uses Google Analytics. See the privacy policy for
+            details.
           </p>
         </div>
       </section>
