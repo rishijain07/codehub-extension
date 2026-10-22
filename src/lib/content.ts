@@ -76,13 +76,43 @@ export const platforms = [
     url: 'https://www.naukri.com/code360/problems',
     mark: '360',
   },
+  {
+    name: 'AtCoder',
+    slug: 'atcoder',
+    folder: 'atcoder/<contest>/<task>/',
+    note: 'Contest solutions, saved after an AC verdict.',
+    detail:
+      'CodeHub matches a new submission to its task and account, then saves it after the final verdict is AC. AtCoder problems are tracked without difficulty ratings.',
+    url: 'https://atcoder.jp/',
+    mark: 'At',
+  },
+  {
+    name: 'InterviewBit',
+    slug: 'interviewbit',
+    folder: 'interviewbit/<problem-slug>/',
+    note: 'Your submitted InterviewBit solutions, in GitHub.',
+    detail:
+      'CodeHub tracks the actual Submit evaluation and matching successful result. Run Code, custom tests, quizzes, and stale results do not sync.',
+    url: 'https://www.interviewbit.com/',
+    mark: 'IB',
+  },
+  {
+    name: 'AlgoExpert',
+    slug: 'algoexpert',
+    folder: 'algoexpert/<question-slug>/',
+    note: 'Submit Code. Pass every required test. Saved.',
+    detail:
+      'Only a successful Submit Code result for the current question and account syncs. Native Very Hard stays labeled and counts under Hard.',
+    url: 'https://www.algoexpert.io/',
+    mark: 'AE',
+  },
 ];
 
 export const faqs = [
   {
     question: 'Which coding platforms can CodeHub sync to GitHub?',
     answer:
-      'CodeHub supports LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas). All seven feed into the repository you choose.',
+      'CodeHub supports LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, Code360 (Coding Ninjas), AtCoder, InterviewBit, and AlgoExpert. Accepted new submissions feed into the repository you choose; the three newest integrations do not backfill historical submissions.',
   },
   {
     question: 'Does CodeHub work with private GitHub repositories?',
@@ -108,6 +138,21 @@ export const faqs = [
     question: 'How does Code360 (Coding Ninjas) sync work?',
     answer:
       'CodeHub captures submitted code on supported Code360 and Coding Ninjas problem pages, confirms acceptance through the platform API using your active session, and saves the solution, README, and statistics under codingninjas/.',
+  },
+  {
+    question: 'Which AtCoder submissions are saved?',
+    answer:
+      'CodeHub tracks new submissions on supported AtCoder contest task and submission pages. It saves a solution only after the matching submission receives a final AC verdict, under atcoder/<contest>/<task>/. AtCoder does not provide a difficulty rating in this integration.',
+  },
+  {
+    question: 'Does InterviewBit sync Run results?',
+    answer:
+      'No. CodeHub tracks the actual Submit evaluation on supported coding-problem pages and syncs only its matching successful result. Run, custom tests, quizzes, assessments, and stale results are excluded.',
+  },
+  {
+    question: 'What counts as an accepted AlgoExpert solution?',
+    answer:
+      'CodeHub syncs only a matching Submit Code result after all required tests pass. Run Code, partial results, old results, and manual completion indicators do not trigger a sync. Very Hard remains the displayed label and is grouped under Hard in aggregate statistics.',
   },
   {
     question: 'Is CodeHub free? Where is my code stored?',

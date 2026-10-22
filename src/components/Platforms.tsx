@@ -41,7 +41,13 @@ export default function Platforms() {
       >
         {platforms.map((p) => (
           <ToggleGroupItem key={p.slug} value={p.slug}>
-            {['neetcode', 'codingninjas'].includes(p.slug) ? (
+            {[
+              'neetcode',
+              'codingninjas',
+              'atcoder',
+              'interviewbit',
+              'algoexpert',
+            ].includes(p.slug) ? (
               <span className="platform-letter" aria-hidden="true">
                 {p.mark}
               </span>

@@ -1,16 +1,17 @@
 # CodeHub — Browser Extension
 
-> CodeHub is a free, privacy-first browser extension that automatically syncs your accepted DSA solutions from LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, and Code360 (Coding Ninjas) into a single organized GitHub repository.
+> CodeHub is a free browser extension that syncs accepted coding solutions from ten platforms into a GitHub repository chosen by the user: LeetCode, GeeksforGeeks, Codeforces, CodeChef, NeetCode, public HackerRank challenges, Code360 (Coding Ninjas), AtCoder, InterviewBit, and AlgoExpert.
 
 - Website: https://rishijain07.github.io/codehub-extension/
 - Chrome Web Store: https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf
 - GitHub Repository: https://github.com/rishijain07/codehub-extension
 - Author: Rishi Jain (beingrishijain@gmail.com)
-- Current website release: v2.4.0 (Manifest V3)
-- Pricing: 100% Free & Open Ecosystem
+- Current extension release: v2.5.0 (Manifest V3)
+- Pricing: Free
+- Browser support: Chrome and compatible Chromium browsers; Firefox package is available. Firefox 128+ is required for HackerRank editor access. Authenticated Firefox submission flows have not been end-to-end verified.
 
 ## Overview & Value Proposition
-CodeHub eliminates the manual friction of copying and committing code after solving Data Structures & Algorithms problems. It converts every accepted solution across competitive programming and interview prep platforms into a structured GitHub repository, building an automated proof-of-work portfolio for software engineering interviews.
+CodeHub eliminates the manual friction of copying and committing code after solving Data Structures & Algorithms problems. It converts accepted submissions across competitive programming and interview prep platforms into a structured GitHub repository, building an automated proof-of-work portfolio for software engineering interviews.
 
 ## Supported Platforms & Sync Mechanisms
 - **LeetCode**: Instant client-side DOM hook upon receiving an "Accepted" verdict. Formats code file and generates a complete `README.md` with difficulty, tags, problem description, and performance stats.
@@ -20,6 +21,11 @@ CodeHub eliminates the manual friction of copying and committing code after solv
 - **NeetCode**: Instant hook on NeetCode 150 & NeetCode 75 problem sets.
 - **HackerRank**: Instant hook for public Practice/Prepare challenges and anonymously public contest challenges. Fullscreen pages fall back to the canonical `/challenges/<slug>/problem` URL when difficulty is hidden; private hiring assessments, tests, and interview pages are excluded.
 - **Code360 (Coding Ninjas)**: Instant hook for supported problem pages on naukri.com/code360 and Coding Ninjas. Captures submitted code, verifies final acceptance via same-origin platform API requests using your active session, and commits solutions under `codingninjas/`.
+- **AtCoder**: Supports authenticated task, submit, submissions-list, and submission-detail pages under `https://atcoder.jp/contests/<contest>/`. It saves a new submission only after matching the task, account, and submission ID to a final `AC` verdict. A new row on `/submissions/me` may be matched after navigation when its account, task, and timestamp match the tracked attempt. Files use `atcoder/<contest-id>/<task-id>/`. AtCoder has no difficulty rating in this integration.
+- **InterviewBit**: Supports coding-problem pages at `interviewbit.com/problems/<slug>` and `www.interviewbit.com/problems/<slug>`, plus their submission routes. It tracks the actual Submit evaluation and matching successful result. Run, custom tests, quizzes, assessments, course pages, and stale results do not sync. Files use `interviewbit/<problem-slug>/`.
+- **AlgoExpert**: Supports question pages at `algoexpert.io/questions/<slug>` and `www.algoexpert.io/questions/<slug>`. It tracks Submit Code and requires a matching result for the current question and account with all required tests passed. Run Code, partial or stale results, and manual completion indicators do not sync. Native Very Hard is retained as the label and grouped under Hard in aggregate counts. Files use `algoexpert/<question-slug>/`.
+
+The AtCoder, InterviewBit, and AlgoExpert integrations capture the exact source at submission time and sync new submissions only; they do not backfill historical submissions. Their pending attempts are isolated by browser tab, expire after ten minutes, and are canceled on rejection or a linked-repository change. A problem tab that was open before extension reload should be refreshed before submitting so capture can observe the page from its start. Transient GitHub upload errors use bounded retries; conflicting statistics updates re-read and merge the latest remote entries.
 
 ### HackerRank output
 
@@ -27,7 +33,8 @@ Accepted HackerRank submissions are written to `hackerrank/<challenge-slug>/solu
 
 ## Architecture & Privacy Model
 - **Code360 support**: Supported Code360 problem pages on naukri.com and Coding Ninjas problem pages sync accepted submissions under `codingninjas/`. The extension captures submitted code and language, fetches problem metadata and submission verdicts through same-origin platform API requests, and temporarily stores submission tracking data and source code in the problem tab's sessionStorage. Uploaded solutions, documentation, and progress statistics remain in the selected GitHub repository after uninstalling.
-- **Zero Intermediary Servers**: CodeHub does not use any hosted backend or cloud database. All network requests travel directly from the user's browser to the platform API and the official GitHub REST API.
+- **Temporary Attempts**: AtCoder, InterviewBit, and AlgoExpert attempts are stored in browser extension storage and scoped to the active tab. Each record may contain the source snapshot, language, problem key, timestamp, account identifier for result matching, linked repository, and submission/execution ID when available. AlgoExpert's account subject is SHA-256 hashed in the page bridge. Platform passwords and cookies are not copied into extension storage.
+- **Direct Extension Sync**: The extension does not use an upload backend or cloud database. Its sync requests travel directly from the browser to platform services and the official GitHub REST API. The marketing website separately uses Google Analytics 4 for website traffic; see the [Privacy Policy](https://rishijain07.github.io/codehub-extension/privacypolicy.txt) and [Google's partner-site privacy information](https://policies.google.com/technologies/partner-sites).
 - **OAuth Device Flow**: Uses GitHub's secure Device Flow (`https://github.com/login/device`). The user never enters their GitHub password into the extension.
 - **Local Storage**: The GitHub OAuth token is stored in extension storage and sent to the official GitHub API to authenticate repository operations. It is not sent to coding platforms.
 - **Private Repositories**: Supports both public and private GitHub repositories.
@@ -59,6 +66,15 @@ your-dsa-repo/
 │   └── two-sum/
 │       ├── solution.cpp
 │       └── README.md
+├── atcoder/<contest-id>/<task-id>/
+│   ├── solution.<ext>
+│   └── README.md
+├── interviewbit/<problem-slug>/
+│   ├── solution.<ext>
+│   └── README.md
+├── algoexpert/<question-slug>/
+│   ├── solution.<ext>
+│   └── README.md
 ├── hackerrank/
 │   ├── cpp-hello-world/
 │   │   ├── solution.cpp
@@ -68,7 +84,7 @@ your-dsa-repo/
 ```
 
 ## Comparison with LeetHub & Alternatives
-- **Multi-Platform**: LeetHub and other tools typically only support LeetCode. CodeHub unifies 7 major platforms in a single repository.
+- **Multi-Platform**: CodeHub organizes solutions from ten coding platforms in a single repository.
 - **Manifest V3 Native**: CodeHub is built on modern Chrome Extensions Manifest V3 architecture with a service worker, ensuring long-term compatibility.
 - **Active Maintenance**: Continuously updated to adapt to UI changes on competitive programming websites.
 
@@ -77,4 +93,4 @@ your-dsa-repo/
 2. Click the CodeHub icon in your browser toolbar and select "Authenticate with GitHub".
 3. Enter the one-time device code at github.com/login/device to grant repo permissions.
 4. Select your target repository or let CodeHub create a clean `DSA-Solutions` repo.
-5. Solve problems on any supported platform — on "Accepted", CodeHub automatically commits your solution and documentation. For HackerRank, Firefox 128+ is required for main-world editor access.
+5. Submit a new solution on a supported platform. CodeHub saves it after matching that submission's accepted result. The AtCoder, InterviewBit, and AlgoExpert integrations do not backfill history. For HackerRank, Firefox 128+ is required for main-world editor access.
