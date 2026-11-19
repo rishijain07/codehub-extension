@@ -49,7 +49,7 @@ const schema = {
       operatingSystem: 'Windows, macOS, Linux, ChromeOS',
       browserRequirements:
         'Chrome, Brave, Edge, or compatible Chromium browser. Firefox support requires Firefox 128+ for HackerRank.',
-      softwareVersion: '2.5.0',
+      softwareVersion: '2.5.2',
       downloadUrl: STORE,
       image: `${SITE}assets/codehub-social-card.png`,
       screenshot: `${SITE}assets/stats.png`,
@@ -262,6 +262,14 @@ const journey = [
             <InstallButton showChrome />
             <AskAI client:load />
           </div>
+          <details class="release-note" data-hero-reveal>
+            <summary><span>New in v2.5.2: solve streaks</span> <span class="release-note-action">What’s new</span></summary>
+            <ul>
+              <li>Track solve streaks in the popup and dashboard.</li>
+              <li>See your best streak and when it’s at risk.</li>
+              <li>Enjoy a cleaner difficulty-level layout.</li>
+            </ul>
+          </details>
         </div>
         <figure
           class="hero-art"

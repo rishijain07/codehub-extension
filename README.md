@@ -10,6 +10,8 @@
     Seamlessly sync your solutions from <b>LeetCode</b>, <b>GeeksforGeeks</b>, <b>Codeforces</b>, <b>CodeChef</b>, <b>NeetCode</b>, public <b>HackerRank</b> challenges, <b>Code360 (Coding Ninjas)</b>, <b>AtCoder</b>, <b>InterviewBit</b>, and <b>AlgoExpert</b> directly into a single, organized GitHub repository.
   </p>
 
+  **New in v2.5.2:** Track solve streaks in the popup and dashboard, see your best streak and at-risk status, and enjoy a cleaner difficulty breakdown.
+
   <!-- Badges -->
   <p align="center">
     <a href="https://chromewebstore.google.com/detail/codehub/dgjlfbfaepcbokmgpicnngbdfckcloaf" target="_blank">
